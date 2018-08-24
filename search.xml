@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title><![CDATA[在MarkdownPad2中实现代码块换行的几种简单方式]]></title>
+    <url>%2F2018%2F08%2F24%2F%E5%9C%A8MarkdownPad2%E4%B8%AD%E5%AE%9E%E7%8E%B0%E4%BB%A3%E7%A0%81%E5%9D%97%E6%8D%A2%E8%A1%8C%E7%9A%84%E5%87%A0%E7%A7%8D%E7%AE%80%E5%8D%95%E6%96%B9%E5%BC%8F%2F</url>
+    <content type="text"><![CDATA[在MarkdownPad2中编写.md文档时，如果直接用``这样的标签来标示代码块的话，代码会呈现很长一串，而自动忽略了本来的换行符。解决这个问题的方法暂时收集到了3个，如下： 方法一，对MarkdownPad2进行设置：在MarkdownPad2中点击菜单栏的Tools &gt;&gt; Options &gt;&gt; Markdown，将右边的Markdown Processor设置为CommonMark，然后保存并关闭。 方法二，使用Tab格式化代码块： 这个方法先将代码块上下的格式化符号去掉，比如`这些，去掉之后选中代码，按一下键盘上的Tab键，即可格式化代码块。 方法三，使用\\来标示代码块。]]></content>
+      <categories>
+        <category>PC使用</category>
+      </categories>
+      <tags>
+        <tag>Markdown</tag>
+        <tag>MarkdownPad2</tag>
+        <tag>代码块</tag>
+        <tag>换行</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[CentOS5.11使用yum时报错Error: Cannot find a valid baseurl for repo: base]]></title>
+    <url>%2F2018%2F08%2F24%2FCentOS5-11%E4%BD%BF%E7%94%A8yum%E6%97%B6%E6%8A%A5%E9%94%99Error-Cannot-find-a-valid-baseurl-for-repo-base%2F</url>
+    <content type="text"><![CDATA[这个问题是前几天发现的，在电脑上安装虚拟机，然后在上面装了大学时老师给的linux景象。配置好静态地址之后，使用yum安装jdk，发现报了下面的错误： 1234567[root@localhost ~]# yum install java-1.8.0-openjdk*Loaded plugins: fastestmirror, securityLoading mirror speeds from cached hostfileYumRepo Error: All mirror URLs are not using ftp, http[s] or file. Eg. Invalid release/removing mirrorlist with no valid mirrors: /var/cache/yum/base/mirrorlist.txtError: Cannot find a valid baseurl for repo: base 在网上查遍了各种办法都不奏效，后来把配置文件（/etc/yum.repos.d/CentOS-Base.repo）中的url拷贝到浏览器访问了一下，真的是url无效导致的。于是直接访问了mirror.centos.org，点击到5.11之后，打开readme，显示如下： 123456This directory (and version of CentOS) is depreciated. CentOS-5 is now past EOLYou can get the last released version of centos 5.11 here:http://vault.centos.org/5.11/Please NOTE: this is not being maintained for security since moving to Vault.It will have security issues, you should upgrade to a new version instead. 于是把配置文件中所有mirrorlist注释掉，把baseurl都改成： 1http://vault.centos.org/5.11/centosplus/$basearch/ 然后就可以了。最后贴一份完整的配置文件，修改之前记得备份： 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960# CentOS-Base.repo## The mirror system uses the connecting IP address of the client and the# update status of each mirror to pick mirrors that are updated to and# geographically close to the client. You should use this for CentOS updates# unless you are manually picking other mirrors.## If the mirrorlist= does not work for you, as a fall back you can try the# remarked out baseurl= line instead.##[base]name=CentOS-5.11 - Base#mirrorlist=http://mirrorlist.centos.org/?release=5.11&amp;arch=$basearch&amp;repo=osbaseurl=http://vault.centos.org/5.11/os/$basearch/gpgcheck=1gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-5#released updates[updates]name=CentOS-5.11 - Updates#mirrorlist=http://mirrorlist.centos.org/?release=5.11&amp;arch=$basearch&amp;repo=updatesbaseurl=http://vault.centos.org/5.11/updates/$basearch/gpgcheck=1gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-5#packages used/produced in the build but not released[addons]name=CentOS-5.11 - Addons#mirrorlist=http://mirrorlist.centos.org/?release=5.11&amp;arch=$basearch&amp;repo=addonsbaseurl=http://vault.centos.org/5.11/addons/$basearch/gpgcheck=1gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-5#additional packages that may be useful[extras]name=CentOS-5.11 - Extras#mirrorlist=http://mirrorlist.centos.org/?release=5.11&amp;arch=$basearch&amp;repo=extrasbaseurl=http://vault.centos.org/5.11/extras/$basearch/gpgcheck=1gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-5#additional packages that extend functionality of existing packages[centosplus]name=CentOS-5.11 - Plus#mirrorlist=http://mirrorlist.centos.org/?release=5.11&amp;arch=$basearch&amp;repo=centosplusbaseurl=http://vault.centos.org/5.11/centosplus/$basearch/gpgcheck=1enabled=0gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-5#contrib - packages by Centos Users[contrib]name=CentOS-5.11 - Contrib#mirrorlist=http://mirrorlist.centos.org/?release=5.11&amp;arch=$basearch&amp;repo=contribbaseurl=http://vault.centos.org/5.11/contrib/$basearch/gpgcheck=1enabled=0gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-5]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>CentOS</tag>
+        <tag>yum</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Linux CentOS更换国内 阿里/网易 yum源]]></title>
+    <url>%2F2018%2F08%2F24%2FLinux-CentOS%E6%9B%B4%E6%8D%A2%E5%9B%BD%E5%86%85-%E9%98%BF%E9%87%8C-%E7%BD%91%E6%98%93-yum%E6%BA%90%2F</url>
+    <content type="text"><![CDATA[参考阿里云官网linux下使用yum源和更换国内Yum的方法 ####第一步，备份原来的配置文件： 12[root@localhost~]# cd /etc/yum.repos.d[root@localhost yum.repos.d]# cp CentOS-Base.repo CentOS-Base.repo.bak ####第二步，找到对应版本的repo文件：阿里镜像地址: http://mirrors.aliyun.com/网易镜像站:http://mirrors.163.com/进入网站后找到自己的系统后选择对应的帮助文件，就找到repo文件了，直接用wget命令下载到Linux中。比如要使用阿里云的 centos-altarch 版本repo，则点击centos-altarch后面的帮助按钮：然后直接把命令复制到Linux执行即可。 ####第三步，清理yum并生成缓存： 1[root@localhost yum.repos.d]# yum clean all 1[root@localhost yum.repos.d]# yum makecache 然后就可以正常使用了，速度要比国外的yum源快很多。]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>CentOS</tag>
+        <tag>yum源</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[解决在Linux(32位)中安装MySQL8时出现：没有可用软件包 mysql-server的问题]]></title>
+    <url>%2F2018%2F08%2F24%2F%E8%A7%A3%E5%86%B3%E5%9C%A8Linux(32%E4%BD%8D)%E4%B8%AD%E5%AE%89%E8%A3%85MySQL8%E6%97%B6%E5%87%BA%E7%8E%B0%EF%BC%9A%E6%B2%A1%E6%9C%89%E5%8F%AF%E7%94%A8%E8%BD%AF%E4%BB%B6%E5%8C%85%20mysql-server%E7%9A%84%E9%97%AE%E9%A2%98%2F</url>
+    <content type="text"><![CDATA[首先是前提，做了以下两步： 12shell&gt; wget http://repo.mysql.com/mysql80-community-release-el7-1.noarch.rpmshell&gt; rpm -Uvh mysql80-community-release-el7-1.noarch.rpm 之后，运行yum -y install mysql-server 时出现“没有可用软件包”的错误。只要把-server去掉就可以了，如下： 1shell&gt; yum -y install mysql 执行之后会生成MariaDB的yum配置，MariaDB是可以替代MySQL的一个数据库（实际上是MySQL的一个分支），猜测可能MySQL8只做了64位，32位只能用MariaDB替代一下了。然后执行： 1shell&gt; yum -y install mariadb-server 即可安装MariaDB，然后执行 systemctl start mariadb启动数据库。启动之后查看进程可以看到，进程名字依然是mysql：使用方式与MySQL类似，具体参考博客园星朝的博客]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux32位</tag>
+        <tag>MySQL8</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[CentOS搭建svn服务器步骤及问题解决]]></title>
+    <url>%2F2018%2F08%2F24%2FCentOS%E6%90%AD%E5%BB%BAsvn%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%AD%A5%E9%AA%A4%E5%8F%8A%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%2F</url>
+    <content type="text"><![CDATA[###第一步，安装SVN： 1shell&gt; yum -y install subversion ###第二步，创建版本库：例如在home下创建版本库： 1234shell&gt; cd /homeshell&gt; mkdir svnshell&gt; mkdir svn/testshell&gt; svnadmin create /home/svn/test 这样就创建好了一个版本库，会在test路径下生成几个默认的目录。 ###第三步，配置版本库：进入test目录的conf目录，有3个配置文件：首先打开svnserve.conf进行配置，添加如下配置即可，或者修改原有配置： 12345anon-access = readauth-access = writepassword-db = passwd #该配置是定位 配置密码的文件authz-db = authz #改配置是定位 配置权限的文件realm = My First Repository 然后打开passwd文件进行配置，在[users]下面添加用户名和密码，可以添加多个，例如： 12bruce = 123456mike = 111111 最后对权限进行配置，打开authz文件： 123456[groups] #对用户进行分组admin = bruceusers = mike[/] #这样写相当于对svn的根目录赋予权限，刚开始可以先按这样配置@admin = rw #加@符表名后面是一个分组名，不加则是用户名* = r #*表示所有人，r表示读权限，w表示写权限 ###第四步，启动服务：启动服务不需要使用系统的服务启动命令，会报一些不必要的错误，直接使用如下命令即可： 1shell&gt; svnserve -d -r /home/svn 如果路径写到test，连接svn路径就按：svn://192.168.110.20，建议启动路径写到svn，连接时如此写：svn://192.168.110.20/test。默认监听3690端口，想自定义监听端口可以在命令后面增加： 1--listen-port 端口号]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>CentOS</tag>
+        <tag>svn服务器</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[好累！iTunes安装不上，UNKNOW\Components...，以及注册表“注册表编辑器无法在当前所选的项及其部分子项上设置安全性”，注册表某项打不开、删不掉，所有问题，都在此终结！]]></title>
+    <url>%2F2018%2F08%2F24%2FiTunes%E5%AE%89%E8%A3%85%E4%B8%8D%E4%B8%8A%E7%9A%84%E9%A1%BD%E5%9B%BA%E9%97%AE%E9%A2%98%2F</url>
+    <content type="text"><![CDATA[这个问题困扰了我好几天，每天网上各种搜方法，全都没有用！ 本来只是想装一个低版本的iTunes，结果牵出来这么一大坨东西。 第一个问题：安装到一半，程序要写注册表的时候，提示UNKNOW\Components…（这里的…是具体的注册表项），如下图： 然后网上有人抛出解决方法，一共两种，第一种是使用命令提示符的： 方便复制给出命令行的文本： secedit /configure /cfg %windir%\inf\defltbase.inf /db defltbase.sdb /verbose 这个是在iTunes吧里看到“lmclmc147”发的。（CSDN编辑器真的很不好用，在这里耽误了好久。。。） 这个方法是可以解决一部分人的问题。 但是有一部分人会出现下列情况： 这样的话，就不会起到任何的作用。 第二种方法是修改注册表权限的： 这是文字描述，换成图片就是： 这个是在iTunes吧看到“阿绪的画”提供的方法，但实际上执行到这里只执行了一半，下面还需要执行一步： 执行完这一步之后，就真正获取了该注册表项及所有子项的权限。就可以重新安装iTunes（也有可能是其它软件）了。 但是这一步有可能会出现一个致命的错误，也就是这个错误，困扰了我三天！往下看： 出现这个错误，就说明上一步执行失败了，那么前面做的所有事情都功亏一篑了。而且这时候你去看UNKNOW\Components…后面的注册表项，你会发现： 打不开，删不掉，头大了吧？实际上这个还跟某些C++库有关系，这里就不多说了，先解决问题。 后来在“卡饭论坛”里看到用户“开开心心”发表的： 我选择了第二种方法，去微软的官网下载到了这个东西，下载链接：https://docs.microsoft.com/zh-cn/sysinternals/downloads/psexec（请自行复制使用） 下载好之后解压，然后用管理员权限打开命令提示符（win10右击开始，点击带“管理员”的命令提示符），然后定位到解压后的文件夹，关掉打开的注册表，直接执行psexec -i -d -s regedit 有些同学不会定位哈：比如psexec放在D盘tools文件夹下，那么打开命令提示符后，先输入“D:”（不要输入引号，输入D和 冒号）,然后回车，然后输入”cd tools”，进入tools文件夹，看到psexec文件了，这时候执行就可以了。 执行之前不要打开着注册表。执行之后会以system权限启动注册表，然后再执行 就不会再提示无法修改，这之后，再去点刚才的注册表项，可以打开了。好，然后重新安装你的iTunes，就会安装成功！ 如果还是不行，那么打开注册表HKEY_LOCAL_MACHINE/SOFTWARE/Microsoft/Windows/CurrentVersion/Installer/UserData/S-1-5-18/，然后右击Components，点击权限，选中自己使用的用户，然后勾选上图画红线的部分“使用可从此对象继承的权限项目替换所有子对象 的权限项目(P)”，应用 - 确定，就好了。 PS: 1、卸载软件的时候，尽量使用windows install clean up 卸载的比较干净，也比较强力； 2、有几个C++的运行库，也与上述问题有关，有些答案让卸载C++运行库，尤其是2005的，我也卸载了，不适用WICU（简写了）都删不掉，同样提示注册表权限的。不过就算删掉之后，依然没有注册表权限，依然没什么用。或许能解决部分人的问题吧。]]></content>
+      <categories>
+        <category>PC使用</category>
+      </categories>
+      <tags>
+        <tag>iTunes安装</tag>
+        <tag>打不开</tag>
+        <tag>删不掉</tag>
+        <tag>注册表</tag>
+      </tags>
+  </entry>
+</search>
