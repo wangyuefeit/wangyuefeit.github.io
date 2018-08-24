@@ -1,0 +1,1106 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Java,ElasticSearch,ES," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="多条件查询和条件多值就一起说了：假如我要用城市编码和多个品牌ID来查询商品列表，那么如下即可：12BoolQueryBuilder boolQueryBuilder = boolQuery().must(termQuery(&amp;quot;cityCode&amp;quot;,searchParams.getCityCode()).must(termsQuery(&amp;quot;brandIds&amp;quot;, s">
+<meta name="keywords" content="Java,ElasticSearch,ES">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ElasticSearchTemplate的几点使用基础，多条件查询、条件多值查询、离我最近&#x2F;经纬度距离查询、范围查询、中文查询、多字段排序、long类型数据错误、条件包含中文、嵌套条件查询&#x2F;子文档。termQuery">
+<meta property="og:url" content="http://yoursite.com/2018/08/24/ElasticSearchTemplate的几点使用基础，多条件查询、条件多值查询、离我最近-经纬度距离查询、范围查询、中文查询、多字段排序、long类型数据错误、条件包含中文、嵌套条件查询-子文档。termQuery/index.html">
+<meta property="og:site_name" content="个人技术博客">
+<meta property="og:description" content="多条件查询和条件多值就一起说了：假如我要用城市编码和多个品牌ID来查询商品列表，那么如下即可：12BoolQueryBuilder boolQueryBuilder = boolQuery().must(termQuery(&amp;quot;cityCode&amp;quot;,searchParams.getCityCode()).must(termsQuery(&amp;quot;brandIds&amp;quot;, s">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-08-24T07:43:44.515Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ElasticSearchTemplate的几点使用基础，多条件查询、条件多值查询、离我最近&#x2F;经纬度距离查询、范围查询、中文查询、多字段排序、long类型数据错误、条件包含中文、嵌套条件查询&#x2F;子文档。termQuery">
+<meta name="twitter:description" content="多条件查询和条件多值就一起说了：假如我要用城市编码和多个品牌ID来查询商品列表，那么如下即可：12BoolQueryBuilder boolQueryBuilder = boolQuery().must(termQuery(&amp;quot;cityCode&amp;quot;,searchParams.getCityCode()).must(termsQuery(&amp;quot;brandIds&amp;quot;, s">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/08/24/ElasticSearchTemplate的几点使用基础，多条件查询、条件多值查询、离我最近-经纬度距离查询、范围查询、中文查询、多字段排序、long类型数据错误、条件包含中文、嵌套条件查询-子文档。termQuery/"/>
+
+
+
+
+
+  <title>ElasticSearchTemplate的几点使用基础，多条件查询、条件多值查询、离我最近/经纬度距离查询、范围查询、中文查询、多字段排序、long类型数据错误、条件包含中文、嵌套条件查询/子文档。termQuery | 个人技术博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">个人技术博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">道生一，一生二，二是0和1。</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/24/ElasticSearchTemplate的几点使用基础，多条件查询、条件多值查询、离我最近-经纬度距离查询、范围查询、中文查询、多字段排序、long类型数据错误、条件包含中文、嵌套条件查询-子文档。termQuery/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="王悦飞">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/naruto.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="个人技术博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">ElasticSearchTemplate的几点使用基础，多条件查询、条件多值查询、离我最近/经纬度距离查询、范围查询、中文查询、多字段排序、long类型数据错误、条件包含中文、嵌套条件查询/子文档。termQuery</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-24T15:43:10+08:00">
+                2018-08-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>多条件查询和条件多值就一起说了：<br>假如我要用城市编码和多个品牌ID来查询商品列表，那么如下即可：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">BoolQueryBuilder boolQueryBuilder = boolQuery().must(termQuery(&quot;cityCode&quot;,searchParams.getCityCode()).must(termsQuery(&quot;brandIds&quot;, searchParams.getBrandIds()));  </span><br><span class="line">SearchQuery searchQuery =new NativeSearchQueryBuilder().withQuery(boolQueryBuilder).withPageable(pageable).build();</span><br></pre></td></tr></table></figure></p>
+<p>这里通常新手会遇到一个问题，就是如果两个条件中有一个为null，那么就会报错，这时候怎么解决呢？（没有学过SpringData Jpa 和 Hibernate的）网上搜了很久没找到答案，实际上却非常简单，如下即可：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">BoolQueryBuilder boolQueryBuilder = boolQuery();  </span><br><span class="line">if (null != searchParams.getCityCode()) &#123;  </span><br><span class="line">        boolQueryBuilder.must(termQuery(&quot;cityCode&quot;, searchParams.getCityCode()));  </span><br><span class="line">&#125;  </span><br><span class="line">if (null != searchParams.getBrandIds() &amp;&amp; !searchParams.getBrandIds().isEmpty()) &#123;  </span><br><span class="line">        boolQueryBuilder.must(termsQuery(&quot;brandIds&quot;, searchParams.getBrandIds()));  </span><br><span class="line">&#125;  </span><br><span class="line">SearchQuery searchQuery =new NativeSearchQueryBuilder().withQuery(boolQueryBuilder).withPageable(pageable).build();</span><br></pre></td></tr></table></figure></p>
+<p>多字段排序：<br>以前我们可以这样写：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Order order1 = new Order(Sort.Direction.ASC, &quot;field1&quot;);  </span><br><span class="line">Order order2 =new Order(Sort.Direction.DESC, &quot;field2&quot;);  </span><br><span class="line">Sort sort =new Sort(order1, order2);</span><br></pre></td></tr></table></figure></p>
+<p>但是现在会出现：<br>Sort sort = new <del>Sort</del>(order1, order2);  </p>
+<p>这种方法已过时，那肯定是不推荐使用了。</p>
+<p>可以采用以下方式：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Sort sort = new Sort(Sort.Direction.ASC,&quot;field1&quot;).and(new Sort(Sort.Direction.DESC, &quot;field2&quot;));</span><br></pre></td></tr></table></figure></p>
+<p>代码手打，有错误请自行更改。</p>
+<p>插播一条问题，存储long类型字段，在Kibana上看到的数据不正确：<br>传了一个订单数据到ES，ID长这样：2018041817382997796，结果传上去之后，用Kibana查出来之后，ES的ID”_id”是对的，就是2018041817382997796，但是订单数据里的orderId却变成了2018041817382997800？？？<br>就因为这个问题还检查代码，重上数据的找了半天原因。<br>最终确定原因为Kibana显示数据的问题，增删改查都没有问题，ES也没有问题，就只是Kibana显示有问题，所以这个问题不用去关心。</p>
+<p>按“离我最近”举例排序：<br>这个难度升级了，一步一步来吧：</p>
+<p>第一步，准备要使用此排序方式的、要存入ES的Bean，添加位置信息属性，并加 @GeoPointField 。位置属性的类型为GeoPoint。正常情况下应该是用SpringData包下的GeoPoint类型，但是使用期间会出现各种无法判断的错误，所以我们一般自己创建一个GeoPoint类，这个类需要有lat（纬度）和lon（经度）这两个属性、两个构造器（空参、全参），和属性的getter setter。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">// 自己创建的GeoPoint  </span><br><span class="line">public class GeoPoint &#123;  </span><br><span class="line">  private Double lat, lon;  </span><br><span class="line">  public GeoPoint() &#123;&#125;  </span><br><span class="line">  public GeoPoint(Double lat, Double lon) &#123;  </span><br><span class="line">    this.lat = lat;  </span><br><span class="line">    this.lon = lon;  </span><br><span class="line">  &#125;  </span><br><span class="line">  public Double getLat() &#123;  </span><br><span class="line">    return lat;  </span><br><span class="line">  &#125;  </span><br><span class="line">  public void setLat(Double lat) &#123;  </span><br><span class="line">    this.lat = lat;</span><br><span class="line">  &#125;  </span><br><span class="line">  public Double getLon() &#123;  </span><br><span class="line">    return lon;  </span><br><span class="line">  &#125;  </span><br><span class="line">  public void setLon(Double lon) &#123;  </span><br><span class="line">    this.lon = lon;  </span><br><span class="line">  &#125;  </span><br><span class="line">&#125;  </span><br><span class="line"></span><br><span class="line">// 要排序的JavaBean  </span><br><span class="line">public class Shop&#123;  </span><br><span class="line">  @Id  </span><br><span class="line">  private Integer shopId;  </span><br><span class="line">  @GeoPointField  </span><br><span class="line">  private GeoPoint position;  </span><br><span class="line">&#125;  </span><br><span class="line"></span><br><span class="line">//多余的就不写了</span><br></pre></td></tr></table></figure></p>
+<p>第二步就是把对象存到ElasticSearch中，这篇文章仅针对“离我最近”排序，如何存入不再赘述。存入之后，在Kibana中看到的位置信息是这样显示的：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&quot;shopId&quot;:201805111234567,  </span><br><span class="line">  &quot;position&quot;:&#123;  </span><br><span class="line">    &quot;lat&quot;:40.123,  </span><br><span class="line">    &quot;lon&quot;:-70.456  </span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure></p>
+<p>第三步，就是排序并查询了，代码如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">NativeSearchQueryBuilder nativeSearchQueryBuilder = new NativeSearchQueryBuilder().withQuery(boolQueryBuilder).withPageable(pageable);  </span><br><span class="line"></span><br><span class="line">if (null != searchParams.getSortType() &amp;&amp; SortTypeConstants.DISTANCE.getCode() == searchParams.getSortType()) &#123;  </span><br><span class="line">  GeoDistanceSortBuilder sortBuilder = SortBuilders.geoDistanceSort(&quot;position&quot;, &quot;&quot;)  </span><br><span class="line">    .point(searchParams.getLat(), searchParams.getLon())  </span><br><span class="line">    .unit(DistanceUnit.METERS)  </span><br><span class="line">    .order(SortOrder.ASC);  </span><br><span class="line">    nativeSearchQueryBuilder.withSort(sortBuilder);  </span><br><span class="line">&#125;  </span><br><span class="line"></span><br><span class="line">SearchQuery searchQuery = nativeSearchQueryBuilder.build();</span><br></pre></td></tr></table></figure></p>
+<p>boolQueryBuilder在前面创建好的，用来拼接筛选条件，我的其它文章有介绍。按距离排序需要创建NativeSearchQueryBuilder，然后.withSort()就可以了。<br>经纬度和排序类型都是放在searchParams里面的，这个没有死规定，可以自行定义。<br>这样就完成了“离我最近”的排序。<br>如果想实现举例范围的，结合后面的范围查询。</p>
+<p>范围查询：<br>(1) gte() :范围查询将匹配字段值大于或等于此参数值的文档。<br>(2) gt() :范围查询将匹配字段值大于此参数值的文档。<br>(3) lte() :范围查询将匹配字段值小于或等于此参数值的文档。<br>(4) lt() :范围查询将匹配字段值小于此参数值的文档。<br>(5) from() 开始值 to() 结束值 这两个函数与includeLower()和includeUpper()函数配套使用。<br>(6) includeLower(true) 表示 from() 查询将匹配字段值大于或等于此参数值的文档。<br>(7) includeLower(false) 表示 from() 查询将匹配字段值大于此参数值的文档。<br>(8) includeUpper(true) 表示 to() 查询将匹配字段值小于或等于此参数值的文档。<br>(9) includeUpper(false) 表示 to() 查询将匹配字段值小于此参数值的文档。</p>
+<p>例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">RangeQueryBuilder rangeQueryBuilder = QueryBuilders.rangeQuery(&quot;createTime&quot;).gte(1527580006000).lt(1527692129000);</span><br></pre></td></tr></table></figure></p>
+<p>或<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">RangeQueryBuilder rangeQueryBuilder = QueryBuilders.rangeQuery(&quot;createTime&quot;);</span><br><span class="line">rangeQueryBuilder.from(1527580006000);</span><br><span class="line">rangeQueryBuilder.to(1527692129000);</span><br><span class="line">rangeQueryBuilder.includeLower(true);</span><br><span class="line">rangeQueryBuilder.includeUpper(true);</span><br></pre></td></tr></table></figure></p>
+<p>来筛选一段时间内的数据。写完这句之后，把它withQuery到QueryBuilder后面就可以了。</p>
+<p>或者也可以直接像文章开头那样拼接：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.must(rangeQuery(&quot;createTime&quot;).gte(1527580006000).lt(1527692129000));</span><br></pre></td></tr></table></figure></p>
+<p>中文条件查询：<br>比如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">termQuery(&quot;cityName&quot;, &quot;北京市&quot;);</span><br></pre></td></tr></table></figure></p>
+<p>改成：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">termQuery(&quot;cityName.keyword&quot;, &quot;北京市&quot;);</span><br></pre></td></tr></table></figure></p>
+<p>即可。</p>
+<p>嵌套条件查询：<br>直接拼接：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.must(nestedQuery(&quot;userInfo&quot;,termQuery(&quot;userInfo.phone&quot;, &quot;17******084&quot;), ScoreMode.None));</span><br></pre></td></tr></table></figure></p>
+<p>如果要做筛选可以把ScoreMode改为其它，这里不做筛选操作直接用None。</p>
+<p>ScoreMode的值包括：Avg、Max、Total、Min。看一眼也知道什么意思了吧。</p>
+<p>这个在网上翻了一下午没翻到，最后在提示代码中找到了，也是不容易。希望以后有人用到，可以直接翻到我的文章。</p>
+<p>如果本文对你有用，麻烦点个喜欢。有钱的捧个钱场，没钱的回家取点钱来捧个钱场，谢谢大家。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Java/" rel="tag"># Java</a>
+          
+            <a href="/tags/ElasticSearch/" rel="tag"># ElasticSearch</a>
+          
+            <a href="/tags/ES/" rel="tag"># ES</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/08/24/Calendar计算出一个月后1天的23点59分59秒，但是减1毫秒后，存入数据库的数据没有减的问题。/" rel="next" title="Calendar计算出一个月后1天的23点59分59秒，但是减1毫秒后，存入数据库的数据没有减的问题。">
+                <i class="fa fa-chevron-left"></i> Calendar计算出一个月后1天的23点59分59秒，但是减1毫秒后，存入数据库的数据没有减的问题。
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/08/24/项目半夜凌晨宕机，报错Invalid-character-found-in-method-name-HTTP-method-names-must-be-tokens-Invalid-character-found-in-the-HTTP-protocol/" rel="prev" title="项目半夜凌晨宕机，报错Invalid character found in method name. HTTP method names must be tokens|Invalid character found in the HTTP protocol">
+                项目半夜凌晨宕机，报错Invalid character found in method name. HTTP method names must be tokens|Invalid character found in the HTTP protocol <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zOTIwMy8xNTczMA=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/uploads/naruto.jpg"
+                alt="王悦飞" />
+            
+              <p class="site-author-name" itemprop="name">王悦飞</p>
+              <p class="site-description motion-element" itemprop="description">The true master will always keep himself as a student.</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">41</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">王悦飞</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

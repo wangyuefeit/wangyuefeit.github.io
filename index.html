@@ -284,6 +284,1361 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/24/安卓微信跳转页面、重定向页面空白，ios系统正常、pc正常、安卓浏览器正常。/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="王悦飞">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/naruto.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="个人技术博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/08/24/安卓微信跳转页面、重定向页面空白，ios系统正常、pc正常、安卓浏览器正常。/" itemprop="url">安卓微信跳转页面、重定向页面空白，ios系统正常、pc正常、安卓浏览器正常。</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-24T15:53:09+08:00">
+                2018-08-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>这个问题是重定向页面地址参数的问题，参数中有“.”。</p>
+<p>由于调用微信支付某个接口要传client_ip，所以在调用服务器接口时，先获取到调用端IP地址，然后写在重定向地址中，等待微信重定向的时候带上这个参数。结果就出现了安卓微信出现空白页面。查看后台日志发现没有跳转到重定向的地址。</p>
+<p>再后来判断是参数的问题，于是将嫌疑最大的client_ip去掉，就可以正常跳转了。</p>
+<p>解决方法有二：</p>
+<ol>
+<li><p>一个是用其它符号比如“_”，代替“.”，到重定向完毕之后，再替换回“.”，就可以了；</p>
+</li>
+<li><p>二是直接去掉这个参数，再想办法在重定向之后获取。</p>
+</li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/24/Java-SpringMVC返回值中含有等号-返回后的JSON变成-u003d的问题/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="王悦飞">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/naruto.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="个人技术博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/08/24/Java-SpringMVC返回值中含有等号-返回后的JSON变成-u003d的问题/" itemprop="url">Java,SpringMVC返回值中含有等号=返回后的JSON变成\u003d的问题</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-24T15:51:23+08:00">
+                2018-08-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>比如返回一个url：http://<strong>*.<em>**</em></strong>.com/abc?a=1&amp;b=2</p>
+<p>会变成：http://<strong>*.<em>**</em></strong>.com/abc?a\u003d&amp;b\u003d2</p>
+<p>这是Gson初始化的问题，默认会对某些特殊字符进行ISO8859-1编码。参照下面写法，便可解除诅咒：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Gson gson = new GsonBuilder().disableHtmlEscaping().create();</span><br></pre></td></tr></table></figure></p>
+<p>然后再用gson去toJson等，就不会自动编码了。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/24/MyBatis异常-There-is-no-getter-for-property-named-XXX-in-class-java-lang-String/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="王悦飞">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/naruto.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="个人技术博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/08/24/MyBatis异常-There-is-no-getter-for-property-named-XXX-in-class-java-lang-String/" itemprop="url">MyBatis异常: There is no getter for property named 'XXX' in 'class java.lang.String'</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-24T15:48:31+08:00">
+                2018-08-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>#####现象：<br>MyBatis的mapper.xml文件传入String类型参数，并且对该参数进行了判空，在执行到这条SQL的时候，就会报这个错误。<br>例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;select id=&quot;countStudent&quot; resultType=&quot;int&quot;&gt;</span><br><span class="line">        SELECT COUNT(*) </span><br><span class="line">        FROM table_student </span><br><span class="line">        &lt;where&gt;</span><br><span class="line">            &lt;if test=&quot;null != stuName and &apos;&apos; != stuName&quot;&gt;</span><br><span class="line">                AND stu_name LIKE #&#123;stuName&#125;</span><br><span class="line">            &lt;/if&gt;</span><br><span class="line">        &lt;/where&gt;</span><br><span class="line">&lt;/select&gt;</span><br></pre></td></tr></table></figure></p>
+<p>#####解决：<br>将test中的参数名称改为“_parameter”即可（SQL语句中的参数名称可以不改）。<br>如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;select id=&quot;countStudent&quot; resultType=&quot;int&quot;&gt;</span><br><span class="line">        SELECT COUNT(*) </span><br><span class="line">        FROM table_student </span><br><span class="line">        &lt;where&gt;</span><br><span class="line">            &lt;if test=&quot;null != _parameter and &apos;&apos; != _parameter&quot;&gt;</span><br><span class="line">                AND stu_name = #&#123;stuName&#125;</span><br><span class="line">            &lt;/if&gt;</span><br><span class="line">        &lt;/where&gt;</span><br><span class="line">&lt;/select&gt;</span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/24/Feign调用返回对象属性全为null-databind-exc-MismatchedInputException-Cannot-deserialize-instance-of-out-of-START-OBJECT-token/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="王悦飞">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/naruto.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="个人技术博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/08/24/Feign调用返回对象属性全为null-databind-exc-MismatchedInputException-Cannot-deserialize-instance-of-out-of-START-OBJECT-token/" itemprop="url">Feign调用返回对象属性全为null | databind.exc.MismatchedInputException: Cannot deserialize instance of '' out of START_OBJECT token</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-24T15:47:54+08:00">
+                2018-08-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Feign是SpringCloud中的一个模块，作用是将本来需要发送请求的工作简化成为调用方法就可以完成的简单工作。</p>
+<p>#####最近在使用Feign的时候，经常出现两种情况：</p>
+<ol>
+<li>请求返回一个对象，请求成功了，没有熔断，也返回数据了，而且对象不为null，但是对象所有的属性都是null，这样直接通过了我们的验空判断，从而造成报错。</li>
+<li>返回一个对象List时，报错如下：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">databind.exc.MismatchedInputException: Cannot deserialize instance of &apos;&apos; out of START_OBJECT token</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>类似这样的。</p>
+<p>#####解决方法：<br>这些错误表面上看好像是返回的数据出了问题。实际上这些错误只能证明，通过Feign调用其它服务时，被调用的服务出了错误，比如SQL错误等。<br>所以只要把关注点从调用方移到被调用方，在被调用服务中debug找到错误就可以了。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/24/Java-SpringBoot-读取、使用yaml文件类型的简述，和对集合list的使用解析/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="王悦飞">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/naruto.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="个人技术博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/08/24/Java-SpringBoot-读取、使用yaml文件类型的简述，和对集合list的使用解析/" itemprop="url">Java SpringBoot 读取、使用yaml文件类型的简述，和对集合list的使用解析</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-24T15:47:06+08:00">
+                2018-08-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>#####基本类型的使用<br>yml文件大部分使用的都是字符串，如果想使用其它类型，只要直接按其它类型写变量值就可以了。<br>举例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#使用boolean</span><br><span class="line">my-switch:</span><br><span class="line"> is-on: true</span><br></pre></td></tr></table></figure></p>
+<p>Java中使用只要加上@Value就可以了：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@Value(&quot;$&#123;my-switch.is-on&#125;&quot;)</span><br><span class="line">private boolean switchOn;</span><br></pre></td></tr></table></figure></p>
+<p>使用其它类型也是一样的。</p>
+<hr>
+<p>#####集合的使用<br>举例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#使用int的list</span><br><span class="line">student:</span><br><span class="line"> ids: [1, 2, 3, 4, 5]</span><br></pre></td></tr></table></figure></p>
+<p>或者：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#使用int的list</span><br><span class="line">student:</span><br><span class="line"> ids: </span><br><span class="line">  - 1</span><br><span class="line">  - 2</span><br><span class="line">  - 3</span><br><span class="line">  - 4</span><br><span class="line">  - 5</span><br></pre></td></tr></table></figure></p>
+<p>这个时候要注意了，Java如果直接写成：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@Value(&quot;$&#123;student.id&#125;&quot;)</span><br><span class="line">private List&lt;Integer&gt; ids;</span><br></pre></td></tr></table></figure></p>
+<p>启动时会报错，Cannot resolve placeholder 什么的<br>这时候应该新建一个对list属性的配置类：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">@Configuration</span><br><span class="line">@ConfigurationProperties(&quot;student&quot;)</span><br><span class="line">public class PropertyConfig&#123;</span><br><span class="line">  private List&lt;Integer&gt; ids;</span><br><span class="line">  // getter &amp; setter</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>然后在要使用的地方自动注入，调用一个getter方法就可以得到配置文件中的值。</p>
+<hr>
+<p>yml文件还可以存放对象和对象的集合，使用方法与基本类型类似。<br>简单举例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#使用对象</span><br><span class="line">student:</span><br><span class="line">  id: 1</span><br><span class="line">  name: Bruce</span><br><span class="line">  gender: male</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#使用对象集合</span><br><span class="line">students: </span><br><span class="line">  - id: 1</span><br><span class="line">    name: Bruce</span><br><span class="line">    gender: male</span><br><span class="line">  - id: 2</span><br><span class="line">    name: ...</span><br><span class="line">    ...</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/24/Java-MySQL-Emoji表情写入数据库时报错问题解决，Incorrect-string-value-xF0-x9F-x98-x84-xF0-x9F-for-column/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="王悦飞">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/naruto.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="个人技术博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/08/24/Java-MySQL-Emoji表情写入数据库时报错问题解决，Incorrect-string-value-xF0-x9F-x98-x84-xF0-x9F-for-column/" itemprop="url">Java | MySQL | Emoji表情写入数据库时报错问题解决，Incorrect string value: 'ðð...' for column</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-24T15:46:20+08:00">
+                2018-08-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>#####现象：<br>将Emoji表情存入数据库时，报如下错误：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Cause: java.sql.SQLException: Incorrect string value: &apos;\xF0\x9F\x99\x83\xF0\x9F...&apos; for column &apos;XXX&apos; at row 1</span><br><span class="line">; uncategorized SQLException; SQL state [HY000]; error code [1366]; Incorrect string value: &apos;\xF0\x9F\x99\x83\xF0\x9F...&apos; for column &apos;XXX&apos; at row 1; nested exception is java.sql.SQLException: Incorrect string value: &apos;\xF0\x9F\x99\x83\xF0\x9F...&apos; for column &apos;XXX&apos;</span><br></pre></td></tr></table></figure></p>
+<p>#####原因：<br>这个问题的主要原因就是MySQL使用的是ut8编码，utf8编码默认每个字符3个字节，而Emoji表情使用的Unicode编码占4个字节，所以写入数据库的时候会写入失败并报错。</p>
+<p>#####解决办法：</p>
+<p>######一、首先确认数据库、表、字段的编码是否是utf8m64，如果是，就跳过这一步。如果不是，先把这些字符集都改为utf8m64:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 修改数据库:</span><br><span class="line">ALTER DATABASE database_name CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci;</span><br><span class="line"># 修改表:</span><br><span class="line">ALTER TABLE table_name CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;</span><br><span class="line"># 修改表字段:</span><br><span class="line">ALTER TABLE table_name CHANGE column_name column_name VARCHAR(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;</span><br></pre></td></tr></table></figure></p>
+<p>######二、然后解决代码。代码中有两种解决办法：</p>
+<ol>
+<li>针对需要的字段改：<br>在Dao层加一个方法：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@Update(&quot;set names utf8mb4&quot;)  </span><br><span class="line">public void setCharsetToUtf8mb4();</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;然后调用写入方法之前，先调用此方法即可。</p>
+<ol start="2">
+<li>一劳永逸，在Java配置数据库连接池的地方加上一行代码即可：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">@Bean(name = &quot;dataSource&quot;)</span><br><span class="line">@Primary</span><br><span class="line">public DataSource dataSource() &#123;</span><br><span class="line">    DruidDataSource dataSource = new DruidDataSource();</span><br><span class="line">    dataSource.setDriverClassName(driverClass);</span><br><span class="line">    dataSource.setUrl(url);</span><br><span class="line">    dataSource.setUsername(user);</span><br><span class="line">    dataSource.setPassword(password);</span><br><span class="line">    dataSource.setConnectionInitSqls(Arrays.asList(&quot;set names utf8mb4&quot;)); # 加入此行代码即可</span><br><span class="line">    dataSource.setInitialSize(initialSize);</span><br><span class="line">    dataSource.setMinIdle(minIdle);</span><br><span class="line">    dataSource.setMaxActive(100);</span><br><span class="line">    dataSource.setMaxWait(maxWait);</span><br><span class="line">    dataSource.setTimeBetweenEvictionRunsMillis(timeBetweenEvictionRunsMillis);</span><br><span class="line">    dataSource.setValidationQuery(validationQuery);</span><br><span class="line">    dataSource.setTestWhileIdle(testWhileIdle);</span><br><span class="line">    dataSource.setTestOnBorrow(testOnBorrow);</span><br><span class="line">    return dataSource;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>这样就可以把Emoji表情写入数据库了，并且可以成功的读取出来。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/24/代码中发送http请求，-java-lang-IllegalArgumentException-Illegal-character-in-query-at-index-，非法字符错误解决办法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="王悦飞">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/naruto.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="个人技术博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/08/24/代码中发送http请求，-java-lang-IllegalArgumentException-Illegal-character-in-query-at-index-，非法字符错误解决办法/" itemprop="url">代码中发送http请求， java.lang.IllegalArgumentException: Illegal character in query at index...，非法字符错误解决办法</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-24T15:45:27+08:00">
+                2018-08-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>产生原因：url中有汉字或特殊字符(非字母和数字的字符)，没有转码。</p>
+<p>解决办法：将带有特殊字符或汉字的参数进行转码，再放入url发送即可。</p>
+<p>例如：param1 = URLEncoder.encode(param1, “UTF-8”);</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/24/项目半夜凌晨宕机，报错Invalid-character-found-in-method-name-HTTP-method-names-must-be-tokens-Invalid-character-found-in-the-HTTP-protocol/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="王悦飞">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/naruto.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="个人技术博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/08/24/项目半夜凌晨宕机，报错Invalid-character-found-in-method-name-HTTP-method-names-must-be-tokens-Invalid-character-found-in-the-HTTP-protocol/" itemprop="url">项目半夜凌晨宕机，报错Invalid character found in method name. HTTP method names must be tokens|Invalid character found in the HTTP protocol</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-24T15:44:05+08:00">
+                2018-08-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>这几天项目总是在凌晨挂机，查看日志发现以下错误：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">Http11Processor - Error parsing HTTP request header</span><br><span class="line"> Note: further occurrences of HTTP header parsing errors will be logged at DEBUG level.</span><br><span class="line">java.lang.IllegalArgumentException: Invalid character found in method name. HTTP method names must be tokens</span><br><span class="line">        at org.apache.coyote.http11.Http11InputBuffer.parseRequestLine(Http11InputBuffer.java:426)</span><br><span class="line">        at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:687)</span><br><span class="line">        at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)</span><br><span class="line">        at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:790)</span><br><span class="line">        at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1459)</span><br><span class="line">        at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)</span><br><span class="line">        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)</span><br><span class="line">        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)</span><br><span class="line">        at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)</span><br><span class="line">        at java.lang.Thread.run(Thread.java:745)</span><br><span class="line"></span><br><span class="line">Http11Processor - Error parsing HTTP request header</span><br><span class="line"> Note: further occurrences of HTTP header parsing errors will be logged at DEBUG level.</span><br><span class="line">java.lang.IllegalArgumentException: Invalid character found in the HTTP protocol</span><br><span class="line">        at org.apache.coyote.http11.Http11InputBuffer.parseRequestLine(Http11InputBuffer.java:533)</span><br><span class="line">        at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:687)</span><br><span class="line">        at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)</span><br><span class="line">        at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:790)</span><br><span class="line">        at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1459)</span><br><span class="line">        at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)</span><br><span class="line">        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)</span><br><span class="line">        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)</span><br><span class="line">        at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)</span><br><span class="line">        at java.lang.Thread.run(Thread.java:745)</span><br></pre></td></tr></table></figure>
+<p>那么可能需要通过以下两种方式解决：</p>
+<p>一、Tomcat的header缓冲区大小不够,只需要在server.xml中增加maxHttpHeaderSize字段即可:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;Connector URIEncoding=&quot;UTF-8&quot; port=&quot;8080&quot; protocol=&quot;org.apache.coyote.http11.Http11NioProtocol&quot;</span><br><span class="line">              useBodyEncodingForURI=&quot;false&quot;</span><br><span class="line">              enableLookups=&quot;false&quot;</span><br><span class="line">              connectionTimeout=&quot;20000&quot;</span><br><span class="line">              redirectPort=&quot;8443&quot; maxHttpHeaderSize=&quot;你想要的大小&quot;/&gt;</span><br></pre></td></tr></table></figure></p>
+<p>   如果是SpringBoot项目，则需要在application.yml文件中，进行如下修改：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">server:</span><br><span class="line">  port: 项目端口</span><br><span class="line">  # 下面这个参数是为解决问题而新增的</span><br><span class="line">  tomcat:</span><br><span class="line">    max-http-header-size:8192</span><br></pre></td></tr></table></figure></p>
+<p>二、可能是因为请求协议不对，需要统一成https或http请求。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/24/ElasticSearchTemplate的几点使用基础，多条件查询、条件多值查询、离我最近-经纬度距离查询、范围查询、中文查询、多字段排序、long类型数据错误、条件包含中文、嵌套条件查询-子文档。termQuery/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="王悦飞">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/naruto.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="个人技术博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/08/24/ElasticSearchTemplate的几点使用基础，多条件查询、条件多值查询、离我最近-经纬度距离查询、范围查询、中文查询、多字段排序、long类型数据错误、条件包含中文、嵌套条件查询-子文档。termQuery/" itemprop="url">ElasticSearchTemplate的几点使用基础，多条件查询、条件多值查询、离我最近/经纬度距离查询、范围查询、中文查询、多字段排序、long类型数据错误、条件包含中文、嵌套条件查询/子文档。termQuery</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-24T15:43:10+08:00">
+                2018-08-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>多条件查询和条件多值就一起说了：<br>假如我要用城市编码和多个品牌ID来查询商品列表，那么如下即可：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">BoolQueryBuilder boolQueryBuilder = boolQuery().must(termQuery(&quot;cityCode&quot;,searchParams.getCityCode()).must(termsQuery(&quot;brandIds&quot;, searchParams.getBrandIds()));  </span><br><span class="line">SearchQuery searchQuery =new NativeSearchQueryBuilder().withQuery(boolQueryBuilder).withPageable(pageable).build();</span><br></pre></td></tr></table></figure></p>
+<p>这里通常新手会遇到一个问题，就是如果两个条件中有一个为null，那么就会报错，这时候怎么解决呢？（没有学过SpringData Jpa 和 Hibernate的）网上搜了很久没找到答案，实际上却非常简单，如下即可：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">BoolQueryBuilder boolQueryBuilder = boolQuery();  </span><br><span class="line">if (null != searchParams.getCityCode()) &#123;  </span><br><span class="line">        boolQueryBuilder.must(termQuery(&quot;cityCode&quot;, searchParams.getCityCode()));  </span><br><span class="line">&#125;  </span><br><span class="line">if (null != searchParams.getBrandIds() &amp;&amp; !searchParams.getBrandIds().isEmpty()) &#123;  </span><br><span class="line">        boolQueryBuilder.must(termsQuery(&quot;brandIds&quot;, searchParams.getBrandIds()));  </span><br><span class="line">&#125;  </span><br><span class="line">SearchQuery searchQuery =new NativeSearchQueryBuilder().withQuery(boolQueryBuilder).withPageable(pageable).build();</span><br></pre></td></tr></table></figure></p>
+<p>多字段排序：<br>以前我们可以这样写：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Order order1 = new Order(Sort.Direction.ASC, &quot;field1&quot;);  </span><br><span class="line">Order order2 =new Order(Sort.Direction.DESC, &quot;field2&quot;);  </span><br><span class="line">Sort sort =new Sort(order1, order2);</span><br></pre></td></tr></table></figure></p>
+<p>但是现在会出现：<br>Sort sort = new <del>Sort</del>(order1, order2);  </p>
+<p>这种方法已过时，那肯定是不推荐使用了。</p>
+<p>可以采用以下方式：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Sort sort = new Sort(Sort.Direction.ASC,&quot;field1&quot;).and(new Sort(Sort.Direction.DESC, &quot;field2&quot;));</span><br></pre></td></tr></table></figure></p>
+<p>代码手打，有错误请自行更改。</p>
+<p>插播一条问题，存储long类型字段，在Kibana上看到的数据不正确：<br>传了一个订单数据到ES，ID长这样：2018041817382997796，结果传上去之后，用Kibana查出来之后，ES的ID”_id”是对的，就是2018041817382997796，但是订单数据里的orderId却变成了2018041817382997800？？？<br>就因为这个问题还检查代码，重上数据的找了半天原因。<br>最终确定原因为Kibana显示数据的问题，增删改查都没有问题，ES也没有问题，就只是Kibana显示有问题，所以这个问题不用去关心。</p>
+<p>按“离我最近”举例排序：<br>这个难度升级了，一步一步来吧：</p>
+<p>第一步，准备要使用此排序方式的、要存入ES的Bean，添加位置信息属性，并加 @GeoPointField 。位置属性的类型为GeoPoint。正常情况下应该是用SpringData包下的GeoPoint类型，但是使用期间会出现各种无法判断的错误，所以我们一般自己创建一个GeoPoint类，这个类需要有lat（纬度）和lon（经度）这两个属性、两个构造器（空参、全参），和属性的getter setter。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">// 自己创建的GeoPoint  </span><br><span class="line">public class GeoPoint &#123;  </span><br><span class="line">  private Double lat, lon;  </span><br><span class="line">  public GeoPoint() &#123;&#125;  </span><br><span class="line">  public GeoPoint(Double lat, Double lon) &#123;  </span><br><span class="line">    this.lat = lat;  </span><br><span class="line">    this.lon = lon;  </span><br><span class="line">  &#125;  </span><br><span class="line">  public Double getLat() &#123;  </span><br><span class="line">    return lat;  </span><br><span class="line">  &#125;  </span><br><span class="line">  public void setLat(Double lat) &#123;  </span><br><span class="line">    this.lat = lat;</span><br><span class="line">  &#125;  </span><br><span class="line">  public Double getLon() &#123;  </span><br><span class="line">    return lon;  </span><br><span class="line">  &#125;  </span><br><span class="line">  public void setLon(Double lon) &#123;  </span><br><span class="line">    this.lon = lon;  </span><br><span class="line">  &#125;  </span><br><span class="line">&#125;  </span><br><span class="line"></span><br><span class="line">// 要排序的JavaBean  </span><br><span class="line">public class Shop&#123;  </span><br><span class="line">  @Id  </span><br><span class="line">  private Integer shopId;  </span><br><span class="line">  @GeoPointField  </span><br><span class="line">  private GeoPoint position;  </span><br><span class="line">&#125;  </span><br><span class="line"></span><br><span class="line">//多余的就不写了</span><br></pre></td></tr></table></figure></p>
+<p>第二步就是把对象存到ElasticSearch中，这篇文章仅针对“离我最近”排序，如何存入不再赘述。存入之后，在Kibana中看到的位置信息是这样显示的：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&quot;shopId&quot;:201805111234567,  </span><br><span class="line">  &quot;position&quot;:&#123;  </span><br><span class="line">    &quot;lat&quot;:40.123,  </span><br><span class="line">    &quot;lon&quot;:-70.456  </span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure></p>
+<p>第三步，就是排序并查询了，代码如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">NativeSearchQueryBuilder nativeSearchQueryBuilder = new NativeSearchQueryBuilder().withQuery(boolQueryBuilder).withPageable(pageable);  </span><br><span class="line"></span><br><span class="line">if (null != searchParams.getSortType() &amp;&amp; SortTypeConstants.DISTANCE.getCode() == searchParams.getSortType()) &#123;  </span><br><span class="line">  GeoDistanceSortBuilder sortBuilder = SortBuilders.geoDistanceSort(&quot;position&quot;, &quot;&quot;)  </span><br><span class="line">    .point(searchParams.getLat(), searchParams.getLon())  </span><br><span class="line">    .unit(DistanceUnit.METERS)  </span><br><span class="line">    .order(SortOrder.ASC);  </span><br><span class="line">    nativeSearchQueryBuilder.withSort(sortBuilder);  </span><br><span class="line">&#125;  </span><br><span class="line"></span><br><span class="line">SearchQuery searchQuery = nativeSearchQueryBuilder.build();</span><br></pre></td></tr></table></figure></p>
+<p>boolQueryBuilder在前面创建好的，用来拼接筛选条件，我的其它文章有介绍。按距离排序需要创建NativeSearchQueryBuilder，然后.withSort()就可以了。<br>经纬度和排序类型都是放在searchParams里面的，这个没有死规定，可以自行定义。<br>这样就完成了“离我最近”的排序。<br>如果想实现举例范围的，结合后面的范围查询。</p>
+<p>范围查询：<br>(1) gte() :范围查询将匹配字段值大于或等于此参数值的文档。<br>(2) gt() :范围查询将匹配字段值大于此参数值的文档。<br>(3) lte() :范围查询将匹配字段值小于或等于此参数值的文档。<br>(4) lt() :范围查询将匹配字段值小于此参数值的文档。<br>(5) from() 开始值 to() 结束值 这两个函数与includeLower()和includeUpper()函数配套使用。<br>(6) includeLower(true) 表示 from() 查询将匹配字段值大于或等于此参数值的文档。<br>(7) includeLower(false) 表示 from() 查询将匹配字段值大于此参数值的文档。<br>(8) includeUpper(true) 表示 to() 查询将匹配字段值小于或等于此参数值的文档。<br>(9) includeUpper(false) 表示 to() 查询将匹配字段值小于此参数值的文档。</p>
+<p>例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">RangeQueryBuilder rangeQueryBuilder = QueryBuilders.rangeQuery(&quot;createTime&quot;).gte(1527580006000).lt(1527692129000);</span><br></pre></td></tr></table></figure></p>
+<p>或<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">RangeQueryBuilder rangeQueryBuilder = QueryBuilders.rangeQuery(&quot;createTime&quot;);</span><br><span class="line">rangeQueryBuilder.from(1527580006000);</span><br><span class="line">rangeQueryBuilder.to(1527692129000);</span><br><span class="line">rangeQueryBuilder.includeLower(true);</span><br><span class="line">rangeQueryBuilder.includeUpper(true);</span><br></pre></td></tr></table></figure></p>
+<p>来筛选一段时间内的数据。写完这句之后，把它withQuery到QueryBuilder后面就可以了。</p>
+<p>或者也可以直接像文章开头那样拼接：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.must(rangeQuery(&quot;createTime&quot;).gte(1527580006000).lt(1527692129000));</span><br></pre></td></tr></table></figure></p>
+<p>中文条件查询：<br>比如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">termQuery(&quot;cityName&quot;, &quot;北京市&quot;);</span><br></pre></td></tr></table></figure></p>
+<p>改成：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">termQuery(&quot;cityName.keyword&quot;, &quot;北京市&quot;);</span><br></pre></td></tr></table></figure></p>
+<p>即可。</p>
+<p>嵌套条件查询：<br>直接拼接：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.must(nestedQuery(&quot;userInfo&quot;,termQuery(&quot;userInfo.phone&quot;, &quot;17******084&quot;), ScoreMode.None));</span><br></pre></td></tr></table></figure></p>
+<p>如果要做筛选可以把ScoreMode改为其它，这里不做筛选操作直接用None。</p>
+<p>ScoreMode的值包括：Avg、Max、Total、Min。看一眼也知道什么意思了吧。</p>
+<p>这个在网上翻了一下午没翻到，最后在提示代码中找到了，也是不容易。希望以后有人用到，可以直接翻到我的文章。</p>
+<p>如果本文对你有用，麻烦点个喜欢。有钱的捧个钱场，没钱的回家取点钱来捧个钱场，谢谢大家。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/24/Calendar计算出一个月后1天的23点59分59秒，但是减1毫秒后，存入数据库的数据没有减的问题。/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -418,1396 +1773,13 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/24/MyBatis中如何取到list的大小/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="王悦飞">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/naruto.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="个人技术博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/08/24/MyBatis中如何取到list的大小/" itemprop="url">MyBatis中如何取到list的大小</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-24T15:33:38+08:00">
-                2018-08-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index">
-                    <span itemprop="name">Java</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>需求：使用MyBatis进行开发时，在一个SQL语句中需要拼接list的大小。</p>
-<p>大家都知道，当我们在MyBatis中写SQL时，如果需要遍历list，先对list进行非空判断的时候，可以加下面这行：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;if test=&quot;null != list and list.size != 0&quot;&gt;SQL&lt;/if&gt;</span><br></pre></td></tr></table></figure></p>
-<p>但是如果想在SQL中取到list.size的值，则比较麻烦。一般会想到如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;select id=&quot;getArticleIdByTags&quot; parameterType=&quot;java.util.List&quot; resultType=&quot;java.lang.Integer&quot;&gt;</span><br><span class="line">    SELECT id</span><br><span class="line">    FROM table_name</span><br><span class="line">    where 1=1</span><br><span class="line">    &lt;foreach collection=&quot;list&quot; item=&quot;item&quot; open=&quot;AND&quot; separator=&quot;OR&quot; close=&quot;GROUP BY id HAVING COUNT(*) &gt;=&quot;&gt;</span><br><span class="line">        field1 = #&#123;item.a&#125; AND field2 = #&#123;item.b&#125;</span><br><span class="line">    &lt;/foreach&gt;</span><br><span class="line">    #&#123;list.size&#125;</span><br><span class="line">&lt;/select&gt;</span><br></pre></td></tr></table></figure></p>
-<p>但是你会发现报错了，PersistenceException、UnsupportOperationException。</p>
-<p>因为list.size用#{}是取不出来的，需要用${}，把#换成$就可以了。</p>
-<p>#{}能够有效防止SQL注入，但是也有它的缺点，它会把传入的数据自动加上一个双引号，所以如果要的是数字的话，就会比较尴尬。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/24/虚拟机Linux-CentOS-桥接模式和NAT模式配置静态IP的完美方案/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="王悦飞">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/naruto.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="个人技术博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/08/24/虚拟机Linux-CentOS-桥接模式和NAT模式配置静态IP的完美方案/" itemprop="url">虚拟机Linux CentOS 桥接模式和NAT模式配置静态IP的完美方案</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-24T15:30:13+08:00">
-                2018-08-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux/" itemprop="url" rel="index">
-                    <span itemprop="name">Linux</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <hr>
-<p>配置静态IP实际上就是设置虚拟机的网络配置和linux的3个配置文件</p>
-<hr>
-<h3 id="桥接模式"><a href="#桥接模式" class="headerlink" title="桥接模式"></a>桥接模式</h3><p>#####1、首先设置这台linux的网络适配器为桥接模式：<br><img src="https://upload-images.jianshu.io/upload_images/10709282-a1fb8fde95cec95a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="网络适配器"></p>
-<p>#####2、查看主机网络配置<br>Ctrl + R 打开运行，输入cmd回车，然后输入ipconfig回车：<br><img src="https://upload-images.jianshu.io/upload_images/10709282-0cf0d4bfcb59f369.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="IP信息"><br>记住IPv4地址和默认网关</p>
-<p>#####3、虚拟机打开第一个配置文件：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# vim /etc/sysconfig/network-scripts/ifcfg-eth0</span><br></pre></td></tr></table></figure></p>
-<p>最后的eth0是网卡名字不是固定的。打开后按照如下修改：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">DEVICE=eth0</span><br><span class="line">BOOTPROTO=static #静态IP的关键</span><br><span class="line">HWADDR=00:0C:29:17:01:FC</span><br><span class="line">ONBOOT=yes 启动时加载</span><br><span class="line">TYPE=Ethernet</span><br><span class="line">IPADDR=192.168.1.220  #自己设置静态IP，不冲突就可以</span><br><span class="line">NETMASK=255.255.255.0</span><br><span class="line">GATEWAY=192.168.1.1 #在主机配置中看到的默认网关</span><br><span class="line">BROADCAST=192.168.1.255</span><br><span class="line">DNS1=192.168.1.1 #设置和网关一样的值</span><br><span class="line">DEFROUTE=yes</span><br><span class="line">PEERDNS=yes</span><br><span class="line">PEERROUTES=yes</span><br><span class="line">IPV4_FAILURE_FATAL=no</span><br><span class="line">NM_CONTROLLED=yes</span><br></pre></td></tr></table></figure></p>
-<p>#####4、修改第二个配置文件：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# vim /etc/sysconfig/network</span><br></pre></td></tr></table></figure></p>
-<p>按照如下内容进行修改：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">NETWORKING=yes</span><br><span class="line">NETWORKING_IPV6=no #关掉IPv6</span><br><span class="line">HOSTNAME=localhost.localdomain</span><br><span class="line">GATEWAY=192.168.1.1 #默认网关地址</span><br></pre></td></tr></table></figure></p>
-<p>#####5、修改第三个配置文件：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# vim /etc/resolv.conf</span><br></pre></td></tr></table></figure></p>
-<p>按以下内容修改：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">search localdomain</span><br><span class="line">nameserver 8.8.8.8 #DNS域名解析地址（首选）</span><br><span class="line">nameserver 192.168.1.1 #（备用）可以写成其它比如114.114.114.114</span><br></pre></td></tr></table></figure></p>
-<p>#####6、修改完毕之后重启网络服务：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# service network restart</span><br></pre></td></tr></table></figure></p>
-<hr>
-<h3 id="NAT模式"><a href="#NAT模式" class="headerlink" title="NAT模式"></a>NAT模式</h3><p>#####1、同样，先设置虚拟机的网络适配器为NAT模式：<br><img src="https://upload-images.jianshu.io/upload_images/10709282-de0f8c1eb864dcc8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="网络适配器"></p>
-<p>#####2、修改VMware的“虚拟网络编辑器”：<br>点编辑 –&gt; 虚拟网络编辑器：<br><img src="https://upload-images.jianshu.io/upload_images/10709282-1a60a0cc0bf04b7f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="编辑"><br>打开之后首先点击NAT模式，然后去掉下面DHCP的勾，然后点击NAT设置：<br><img src="https://upload-images.jianshu.io/upload_images/10709282-01407b0fda24d9f2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="虚拟网络适配器"><br>NAT默认设置了110网段，这个可以修改，修改的话要统一修改不要落下。没有特殊需求就不要修改了。<br>打开NAT设置面板之后，记住下面红框中这个IP：<br><img src="https://upload-images.jianshu.io/upload_images/10709282-6ea5a10840d68cac.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="NAT设置"></p>
-<p>#####3、设置完成后，启动虚拟机，修改第一个配置文件，这次要按照NAT设置中的IP进行配置：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# vim /etc/sysconfig/network-scripts/ifcfg-eth0</span><br></pre></td></tr></table></figure></p>
-<p>按如下改动：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">DEVICE=eth0</span><br><span class="line">BOOTPROTO=static</span><br><span class="line">HWADDR=00:0C:29:17:01:FC</span><br><span class="line">ONBOOT=yes</span><br><span class="line">TYPE=Ethernet</span><br><span class="line">IPADDR=192.168.110.128 #网段限制在110所以IP地址变了</span><br><span class="line">NETMASK=255.255.255.0</span><br><span class="line">GATEWAY=192.168.110.2 #按照NAT设置中的网关地址设置</span><br><span class="line">BROADCAST=192.168.110.255</span><br><span class="line">DNS1=192.168.110.2</span><br><span class="line">DEFROUTE=yes</span><br><span class="line">PEERDNS=yes</span><br><span class="line">PEERROUTES=yes</span><br><span class="line">IPV4_FAILURE_FATAL=no</span><br><span class="line">NM_CONTROLLED=yes</span><br></pre></td></tr></table></figure></p>
-<p>#####4、修改第二个配置文件：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# vim /etc/sysconfig/network</span><br></pre></td></tr></table></figure></p>
-<p>按如下改动：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">NETWORKING=yes</span><br><span class="line">NETWORKING_IPV6=no</span><br><span class="line">HOSTNAME=localhost.localdomain</span><br><span class="line">GATEWAY=192.168.110.2</span><br></pre></td></tr></table></figure></p>
-<p>#####5、修改第三个配置文件：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# vim /etc/resolv.conf</span><br></pre></td></tr></table></figure></p>
-<p>按如下改动：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">search localdomain</span><br><span class="line">nameserver 8.8.8.8</span><br><span class="line">nameserver 192.168.110.2</span><br></pre></td></tr></table></figure></p>
-<p>#####6、修改完毕之后重启网络服务：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# service network restart</span><br></pre></td></tr></table></figure></p>
-<hr>
-<p><em>这是一个结尾</em></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/24/NAT模式，虚拟机可以ping通主机，主机不能ping通虚拟机，主机ping不同虚拟机/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="王悦飞">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/naruto.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="个人技术博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/08/24/NAT模式，虚拟机可以ping通主机，主机不能ping通虚拟机，主机ping不同虚拟机/" itemprop="url">NAT模式，虚拟机可以ping通主机，主机不能ping通虚拟机，主机ping不通虚拟机</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-24T15:28:34+08:00">
-                2018-08-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux/" itemprop="url" rel="index">
-                    <span itemprop="name">Linux</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>刚开始设置完静态IP之后，是可以ping通的，之后执行了如下命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# sudo dhclient</span><br></pre></td></tr></table></figure></p>
-<p>然后xshell断了，主机也ping不同虚拟机了。<br>后来找到问题在于主机的适配器设置中，NAT相关的适配器变成了自动获取IP地址。<br>右击电脑右下角网络的符号，点击“打开网络和共享中心” -&gt; “更改适配器设置”，就可以看到虚拟机的几个适配器配置，NAT模式的配置一般是VMnet8。<br><img src="https://upload-images.jianshu.io/upload_images/10709282-8030590d3011d36f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="VMnet8"><br>我的是这样显示的，找了半天……<br>右键 -&gt; 属性 -&gt; IPv4 -&gt; 属性：<br><img src="https://upload-images.jianshu.io/upload_images/10709282-bd973a381a51b424.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="IPv4"><br>设置到和NAT虚拟机一个网段：<br><img src="https://upload-images.jianshu.io/upload_images/10709282-74042016a73fdc54.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="属性"><br>确定，然后ping虚拟机就通了，xshell也可以连接了。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/24/在MarkdownPad2中实现代码块换行的几种简单方式/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="王悦飞">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/naruto.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="个人技术博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/08/24/在MarkdownPad2中实现代码块换行的几种简单方式/" itemprop="url">在MarkdownPad2中实现代码块换行的几种简单方式</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-24T14:43:31+08:00">
-                2018-08-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/PC使用/" itemprop="url" rel="index">
-                    <span itemprop="name">PC使用</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>在MarkdownPad2中编写.md文档时，如果直接用`<code>`</code>这样的标签来标示代码块的话，代码会呈现很长一串，而自动忽略了本来的换行符。解决这个问题的方法暂时收集到了3个，如下：</p>
-<ol>
-<li>方法一，对MarkdownPad2进行设置：<br>在MarkdownPad2中点击菜单栏的Tools &gt;&gt; Options &gt;&gt; Markdown，将右边的Markdown Processor设置为CommonMark，然后保存并关闭。</li>
-</ol>
-<p><img src="https://upload-images.jianshu.io/upload_images/10709282-4593622a646aea85.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<ol start="2">
-<li>方法二，使用Tab格式化代码块：</li>
-</ol>
-<p>这个方法先将代码块上下的格式化符号去掉，比如`<code></code>这些，去掉之后选中代码，按一下键盘上的Tab键，即可格式化代码块。</p>
-<ol start="3">
-<li>方法三，使用\<pre>\</pre>来标示代码块。</li>
-</ol>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/24/CentOS5-11使用yum时报错Error-Cannot-find-a-valid-baseurl-for-repo-base/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="王悦飞">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/naruto.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="个人技术博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/08/24/CentOS5-11使用yum时报错Error-Cannot-find-a-valid-baseurl-for-repo-base/" itemprop="url">CentOS5.11使用yum时报错Error: Cannot find a valid baseurl for repo: base</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-24T14:34:31+08:00">
-                2018-08-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux/" itemprop="url" rel="index">
-                    <span itemprop="name">Linux</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>这个问题是前几天发现的，在电脑上安装虚拟机，然后在上面装了大学时老师给的linux景象。配置好静态地址之后，使用yum安装jdk，发现报了下面的错误：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# yum install java-1.8.0-openjdk*</span><br><span class="line">Loaded plugins: fastestmirror, security</span><br><span class="line">Loading mirror speeds from cached hostfile</span><br><span class="line">YumRepo Error: All mirror URLs are not using ftp, http[s] or file.</span><br><span class="line"> Eg. Invalid release/</span><br><span class="line">removing mirrorlist with no valid mirrors: /var/cache/yum/base/mirrorlist.txt</span><br><span class="line">Error: Cannot find a valid baseurl for repo: base</span><br></pre></td></tr></table></figure>
-<p>在网上查遍了各种办法都不奏效，后来把配置文件（/etc/yum.repos.d/CentOS-Base.repo）中的url拷贝到浏览器访问了一下，真的是url无效导致的。<br>于是直接访问了mirror.centos.org，点击到5.11之后，打开readme，显示如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">This directory (and version of CentOS) is depreciated.  </span><br><span class="line">CentOS-5 is now past EOL</span><br><span class="line">You can get the last released version of centos 5.11 here:</span><br><span class="line">http://vault.centos.org/5.11/</span><br><span class="line">Please NOTE:  this is not being maintained for security since moving to Vault.</span><br><span class="line">It will have security issues, you should upgrade to a new version instead.</span><br></pre></td></tr></table></figure>
-<p>于是把配置文件中所有mirrorlist注释掉，把baseurl都改成：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://vault.centos.org/5.11/centosplus/$basearch/</span><br></pre></td></tr></table></figure>
-<p>然后就可以了。<br>最后贴一份完整的配置文件，修改之前记得备份：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"># CentOS-Base.repo</span><br><span class="line">#</span><br><span class="line"># The mirror system uses the connecting IP address of the client and the</span><br><span class="line"># update status of each mirror to pick mirrors that are updated to and</span><br><span class="line"># geographically close to the client.  You should use this for CentOS updates</span><br><span class="line"># unless you are manually picking other mirrors.</span><br><span class="line">#</span><br><span class="line"># If the mirrorlist= does not work for you, as a fall back you can try the</span><br><span class="line"># remarked out baseurl= line instead.</span><br><span class="line">#</span><br><span class="line">#</span><br><span class="line"></span><br><span class="line">[base]</span><br><span class="line">name=CentOS-5.11 - Base</span><br><span class="line">#mirrorlist=http://mirrorlist.centos.org/?release=5.11&amp;arch=$basearch&amp;repo=os</span><br><span class="line">baseurl=http://vault.centos.org/5.11/os/$basearch/</span><br><span class="line">gpgcheck=1</span><br><span class="line">gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-5</span><br><span class="line"></span><br><span class="line">#released updates</span><br><span class="line">[updates]</span><br><span class="line">name=CentOS-5.11 - Updates</span><br><span class="line">#mirrorlist=http://mirrorlist.centos.org/?release=5.11&amp;arch=$basearch&amp;repo=updates</span><br><span class="line">baseurl=http://vault.centos.org/5.11/updates/$basearch/</span><br><span class="line">gpgcheck=1</span><br><span class="line">gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-5</span><br><span class="line"></span><br><span class="line">#packages used/produced in the build but not released</span><br><span class="line">[addons]</span><br><span class="line">name=CentOS-5.11 - Addons</span><br><span class="line">#mirrorlist=http://mirrorlist.centos.org/?release=5.11&amp;arch=$basearch&amp;repo=addons</span><br><span class="line">baseurl=http://vault.centos.org/5.11/addons/$basearch/</span><br><span class="line">gpgcheck=1</span><br><span class="line">gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-5</span><br><span class="line"></span><br><span class="line">#additional packages that may be useful</span><br><span class="line">[extras]</span><br><span class="line">name=CentOS-5.11 - Extras</span><br><span class="line">#mirrorlist=http://mirrorlist.centos.org/?release=5.11&amp;arch=$basearch&amp;repo=extras</span><br><span class="line">baseurl=http://vault.centos.org/5.11/extras/$basearch/</span><br><span class="line">gpgcheck=1</span><br><span class="line">gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-5</span><br><span class="line"></span><br><span class="line">#additional packages that extend functionality of existing packages</span><br><span class="line">[centosplus]</span><br><span class="line">name=CentOS-5.11 - Plus</span><br><span class="line">#mirrorlist=http://mirrorlist.centos.org/?release=5.11&amp;arch=$basearch&amp;repo=centosplus</span><br><span class="line">baseurl=http://vault.centos.org/5.11/centosplus/$basearch/</span><br><span class="line">gpgcheck=1</span><br><span class="line">enabled=0</span><br><span class="line">gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-5</span><br><span class="line"></span><br><span class="line">#contrib - packages by Centos Users</span><br><span class="line">[contrib]</span><br><span class="line">name=CentOS-5.11 - Contrib</span><br><span class="line">#mirrorlist=http://mirrorlist.centos.org/?release=5.11&amp;arch=$basearch&amp;repo=contrib</span><br><span class="line">baseurl=http://vault.centos.org/5.11/contrib/$basearch/</span><br><span class="line">gpgcheck=1</span><br><span class="line">enabled=0</span><br><span class="line">gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-5</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/24/Linux-CentOS更换国内-阿里-网易-yum源/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="王悦飞">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/naruto.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="个人技术博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/08/24/Linux-CentOS更换国内-阿里-网易-yum源/" itemprop="url">Linux CentOS更换国内 阿里/网易 yum源</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-24T14:32:44+08:00">
-                2018-08-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux/" itemprop="url" rel="index">
-                    <span itemprop="name">Linux</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>参考阿里云官网<a href="https://www.aliyun.com/jiaocheng/130106.html" target="_blank" rel="noopener">linux下使用yum源和更换国内Yum的方法</a></p>
-<p>####第一步，备份原来的配置文件：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost~]# cd /etc/yum.repos.d</span><br><span class="line">[root@localhost yum.repos.d]# cp CentOS-Base.repo CentOS-Base.repo.bak</span><br></pre></td></tr></table></figure>
-<p>####第二步，找到对应版本的repo文件：<br>阿里镜像地址: <a href="http://mirrors.aliyun.com/" target="_blank" rel="noopener">http://mirrors.aliyun.com/</a><br>网易镜像站:<a href="http://mirrors.163.com/" target="_blank" rel="noopener">http://mirrors.163.com/</a><br>进入网站后找到自己的系统后选择对应的帮助文件，就找到repo文件了，直接用wget命令下载到Linux中。<br>比如要使用阿里云的 centos-altarch 版本repo，则点击centos-altarch后面的帮助按钮：<br><img src="https://upload-images.jianshu.io/upload_images/10709282-d7d2975c1a2c200d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="阿里云镜像地址"><br>然后直接把命令复制到Linux执行即可。<br><img src="https://upload-images.jianshu.io/upload_images/10709282-ffd290d7d28edde8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="帮助"></p>
-<p>####第三步，清理yum并生成缓存：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost yum.repos.d]# yum clean all</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost yum.repos.d]# yum makecache</span><br></pre></td></tr></table></figure>
-<p>然后就可以正常使用了，速度要比国外的yum源快很多。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/24/解决在Linux(32位)中安装MySQL8时出现：没有可用软件包 mysql-server的问题/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="王悦飞">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/naruto.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="个人技术博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/08/24/解决在Linux(32位)中安装MySQL8时出现：没有可用软件包 mysql-server的问题/" itemprop="url">解决在Linux(32位)中安装MySQL8时出现：没有可用软件包 mysql-server的问题</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-24T14:30:15+08:00">
-                2018-08-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux/" itemprop="url" rel="index">
-                    <span itemprop="name">Linux</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>首先是前提，做了以下两步：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">shell&gt; wget http://repo.mysql.com/mysql80-community-release-el7-1.noarch.rpm</span><br><span class="line">shell&gt; rpm -Uvh mysql80-community-release-el7-1.noarch.rpm</span><br></pre></td></tr></table></figure>
-<p>之后，运行yum -y install mysql-server 时出现“没有可用软件包”的错误。<br>只要把-server去掉就可以了，如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">shell&gt; yum -y install mysql</span><br></pre></td></tr></table></figure>
-<p>执行之后会生成MariaDB的yum配置，MariaDB是可以替代MySQL的一个数据库（实际上是MySQL的一个分支），猜测可能MySQL8只做了64位，32位只能用MariaDB替代一下了。<br>然后执行：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">shell&gt; yum -y install mariadb-server</span><br></pre></td></tr></table></figure>
-<p>即可安装MariaDB，然后执行 systemctl start mariadb启动数据库。<br>启动之后查看进程可以看到，进程名字依然是mysql：<br><img src="https://upload-images.jianshu.io/upload_images/10709282-4a25331cac4ac3f7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="MariaDB进程"><br>使用方式与MySQL类似，具体参考<a href="https://www.cnblogs.com/jpfss/p/6568976.html" target="_blank" rel="noopener">博客园星朝的博客</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/24/CentOS搭建svn服务器步骤及问题解决/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="王悦飞">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/naruto.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="个人技术博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/08/24/CentOS搭建svn服务器步骤及问题解决/" itemprop="url">CentOS搭建svn服务器步骤及问题解决</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-24T14:27:15+08:00">
-                2018-08-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux/" itemprop="url" rel="index">
-                    <span itemprop="name">Linux</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>###第一步，安装SVN：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">shell&gt; yum -y install subversion</span><br></pre></td></tr></table></figure>
-<p>###第二步，创建版本库：<br>例如在home下创建版本库：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">shell&gt; cd /home</span><br><span class="line">shell&gt; mkdir svn</span><br><span class="line">shell&gt; mkdir svn/test</span><br><span class="line">shell&gt; svnadmin create /home/svn/test</span><br></pre></td></tr></table></figure>
-<p>这样就创建好了一个版本库，会在test路径下生成几个默认的目录。</p>
-<p>###第三步，配置版本库：<br>进入test目录的conf目录，有3个配置文件：<br>首先打开svnserve.conf进行配置，添加如下配置即可，或者修改原有配置：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">anon-access = read</span><br><span class="line">auth-access = write</span><br><span class="line">password-db = passwd  #该配置是定位 配置密码的文件</span><br><span class="line">authz-db = authz  #改配置是定位 配置权限的文件</span><br><span class="line">realm = My First Repository</span><br></pre></td></tr></table></figure>
-<p>然后打开passwd文件进行配置，在[users]下面添加用户名和密码，可以添加多个，例如：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">bruce = 123456</span><br><span class="line">mike = 111111</span><br></pre></td></tr></table></figure>
-<p>最后对权限进行配置，打开authz文件：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[groups]  #对用户进行分组</span><br><span class="line">admin = bruce</span><br><span class="line">users = mike</span><br><span class="line">[/]  #这样写相当于对svn的根目录赋予权限，刚开始可以先按这样配置</span><br><span class="line">@admin = rw  #加@符表名后面是一个分组名，不加则是用户名</span><br><span class="line">* = r #*表示所有人，r表示读权限，w表示写权限</span><br></pre></td></tr></table></figure>
-<p>###第四步，启动服务：<br>启动服务不需要使用系统的服务启动命令，会报一些不必要的错误，直接使用如下命令即可：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">shell&gt; svnserve -d -r /home/svn</span><br></pre></td></tr></table></figure>
-<p>如果路径写到test，连接svn路径就按：svn://192.168.110.20，建议启动路径写到svn，连接时如此写：svn://192.168.110.20/test。<br>默认监听3690端口，想自定义监听端口可以在命令后面增加：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">--listen-port 端口号</span><br></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/24/iTunes安装不上的顽固问题/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="王悦飞">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/naruto.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="个人技术博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/08/24/iTunes安装不上的顽固问题/" itemprop="url">好累！iTunes安装不上，UNKNOW\Components...，以及注册表“注册表编辑器无法在当前所选的项及其部分子项上设置安全性”，注册表某项打不开、删不掉，所有问题，都在此终结！</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-24T09:48:15+08:00">
-                2018-08-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/PC使用/" itemprop="url" rel="index">
-                    <span itemprop="name">PC使用</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>这个问题困扰了我好几天，每天网上各种搜方法，全都没有用！</p>
-<p>本来只是想装一个低版本的iTunes，结果牵出来这么一大坨东西。</p>
-<p>第一个问题：安装到一半，程序要写注册表的时候，提示UNKNOW\Components…（这里的…是具体的注册表项），如下图：</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/10709282-cd679125cffde5b0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="无法打开键"></p>
-<p>然后网上有人抛出解决方法，一共两种，第一种是使用命令提示符的：</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/10709282-46c48289802a2bde.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p>方便复制给出命令行的文本：</p>
-<p>secedit /configure /cfg %windir%\inf\defltbase.inf /db defltbase.sdb /verbose</p>
-<p>这个是在iTunes吧里看到“lmclmc147”发的。（CSDN编辑器真的很不好用，在这里耽误了好久。。。）</p>
-<p>这个方法是可以解决一部分人的问题。</p>
-<p>但是有一部分人会出现下列情况：</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/10709282-7c1441d38df5e9ca.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p>这样的话，就不会起到任何的作用。</p>
-<p>第二种方法是修改注册表权限的：</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/10709282-447a3832f93bb200.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p>这是文字描述，换成图片就是：</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/10709282-d27e43082e028827.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br><img src="https://upload-images.jianshu.io/upload_images/10709282-795698ade2be91eb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br><img src="https://upload-images.jianshu.io/upload_images/10709282-2c339e97a05790e7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br><img src="https://upload-images.jianshu.io/upload_images/10709282-dba14635c6748b57.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br><img src="https://upload-images.jianshu.io/upload_images/10709282-391d4baac7e01ae1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br><img src="https://upload-images.jianshu.io/upload_images/10709282-a724d32ab791acb1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br><img src="https://upload-images.jianshu.io/upload_images/10709282-39de7fd6373dc5e7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br><img src="https://upload-images.jianshu.io/upload_images/10709282-9d61443d66550803.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p>这个是在iTunes吧看到“阿绪的画”提供的方法，但实际上执行到这里只执行了一半，下面还需要执行一步：</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/10709282-9c7e56fe2c4457fa.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p>执行完这一步之后，就真正获取了该注册表项及所有子项的权限。就可以重新安装iTunes（也有可能是其它软件）了。</p>
-<p>但是这一步有可能会出现一个致命的错误，也就是这个错误，困扰了我三天！往下看：</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/10709282-1d3b5a059cfa4952.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p>出现这个错误，就说明上一步执行失败了，那么前面做的所有事情都功亏一篑了。而且这时候你去看UNKNOW\Components…后面的注册表项，你会发现：</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/10709282-289b65b549f83953.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p>打不开，删不掉，头大了吧？实际上这个还跟某些C++库有关系，这里就不多说了，先解决问题。</p>
-<p>后来在“卡饭论坛”里看到用户“开开心心”发表的：</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/10709282-dfa677027977b161.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p>我选择了第二种方法，去微软的官网下载到了这个东西，下载链接：<a href="https://docs.microsoft.com/zh-cn/sysinternals/downloads/psexec（请自行复制使用）" target="_blank" rel="noopener">https://docs.microsoft.com/zh-cn/sysinternals/downloads/psexec（请自行复制使用）</a></p>
-<p>下载好之后解压，然后用管理员权限打开命令提示符（win10右击开始，点击带“管理员”的命令提示符），然后定位到解压后的文件夹，关掉打开的注册表，直接执行psexec -i -d -s regedit</p>
-<p>有些同学不会定位哈：比如psexec放在D盘tools文件夹下，那么打开命令提示符后，先输入“D:”（不要输入引号，输入D和 冒号）,然后回车，然后输入”cd tools”，进入tools文件夹，看到psexec文件了，这时候执行就可以了。</p>
-<p>执行之前不要打开着注册表。执行之后会以system权限启动注册表，然后再执行</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/10709282-7c82a85d18e92564.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p>就不会再提示无法修改，这之后，再去点刚才的注册表项，可以打开了。好，然后重新安装你的iTunes，就会安装成功！</p>
-<p>如果还是不行，那么打开注册表HKEY_LOCAL_MACHINE/SOFTWARE/Microsoft/Windows/CurrentVersion/Installer/UserData/S-1-5-18/，然后右击Components，点击权限，选中自己使用的用户，然后勾选上图画红线的部分“使用可从此对象继承的权限项目替换所有子对象 的权限项目(P)”，应用 - 确定，就好了。</p>
-<p>PS:</p>
-<p>1、卸载软件的时候，尽量使用windows install clean up 卸载的比较干净，也比较强力；</p>
-<p>2、有几个C++的运行库，也与上述问题有关，有些答案让卸载C++运行库，尤其是2005的，我也卸载了，不适用WICU（简写了）都删不掉，同样提示注册表权限的。不过就算删掉之后，依然没有注册表权限，依然没什么用。或许能解决部分人的问题吧。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
 
 
           </div>
@@ -1855,7 +1827,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">19</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1877,7 +1849,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-count">41</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

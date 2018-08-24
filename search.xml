@@ -1,6 +1,123 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[安卓微信跳转页面、重定向页面空白，ios系统正常、pc正常、安卓浏览器正常。]]></title>
+    <url>%2F2018%2F08%2F24%2F%E5%AE%89%E5%8D%93%E5%BE%AE%E4%BF%A1%E8%B7%B3%E8%BD%AC%E9%A1%B5%E9%9D%A2%E3%80%81%E9%87%8D%E5%AE%9A%E5%90%91%E9%A1%B5%E9%9D%A2%E7%A9%BA%E7%99%BD%EF%BC%8Cios%E7%B3%BB%E7%BB%9F%E6%AD%A3%E5%B8%B8%E3%80%81pc%E6%AD%A3%E5%B8%B8%E3%80%81%E5%AE%89%E5%8D%93%E6%B5%8F%E8%A7%88%E5%99%A8%E6%AD%A3%E5%B8%B8%E3%80%82%2F</url>
+    <content type="text"><![CDATA[这个问题是重定向页面地址参数的问题，参数中有“.”。 由于调用微信支付某个接口要传client_ip，所以在调用服务器接口时，先获取到调用端IP地址，然后写在重定向地址中，等待微信重定向的时候带上这个参数。结果就出现了安卓微信出现空白页面。查看后台日志发现没有跳转到重定向的地址。 再后来判断是参数的问题，于是将嫌疑最大的client_ip去掉，就可以正常跳转了。 解决方法有二： 一个是用其它符号比如“_”，代替“.”，到重定向完毕之后，再替换回“.”，就可以了； 二是直接去掉这个参数，再想办法在重定向之后获取。]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>微信</tag>
+        <tag>安卓</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Java,SpringMVC返回值中含有等号=返回后的JSON变成\u003d的问题]]></title>
+    <url>%2F2018%2F08%2F24%2FJava-SpringMVC%E8%BF%94%E5%9B%9E%E5%80%BC%E4%B8%AD%E5%90%AB%E6%9C%89%E7%AD%89%E5%8F%B7-%E8%BF%94%E5%9B%9E%E5%90%8E%E7%9A%84JSON%E5%8F%98%E6%88%90-u003d%E7%9A%84%E9%97%AE%E9%A2%98%2F</url>
+    <content type="text"><![CDATA[比如返回一个url：http://*.**.com/abc?a=1&amp;b=2 会变成：http://*.**.com/abc?a\u003d&amp;b\u003d2 这是Gson初始化的问题，默认会对某些特殊字符进行ISO8859-1编码。参照下面写法，便可解除诅咒：1Gson gson = new GsonBuilder().disableHtmlEscaping().create(); 然后再用gson去toJson等，就不会自动编码了。]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>JSON</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[MyBatis异常: There is no getter for property named 'XXX' in 'class java.lang.String']]></title>
+    <url>%2F2018%2F08%2F24%2FMyBatis%E5%BC%82%E5%B8%B8-There-is-no-getter-for-property-named-XXX-in-class-java-lang-String%2F</url>
+    <content type="text"><![CDATA[#####现象：MyBatis的mapper.xml文件传入String类型参数，并且对该参数进行了判空，在执行到这条SQL的时候，就会报这个错误。例如：123456789&lt;select id=&quot;countStudent&quot; resultType=&quot;int&quot;&gt; SELECT COUNT(*) FROM table_student &lt;where&gt; &lt;if test=&quot;null != stuName and &apos;&apos; != stuName&quot;&gt; AND stu_name LIKE #&#123;stuName&#125; &lt;/if&gt; &lt;/where&gt;&lt;/select&gt; #####解决：将test中的参数名称改为“_parameter”即可（SQL语句中的参数名称可以不改）。如下：123456789&lt;select id=&quot;countStudent&quot; resultType=&quot;int&quot;&gt; SELECT COUNT(*) FROM table_student &lt;where&gt; &lt;if test=&quot;null != _parameter and &apos;&apos; != _parameter&quot;&gt; AND stu_name = #&#123;stuName&#125; &lt;/if&gt; &lt;/where&gt;&lt;/select&gt;]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>MyBatis</tag>
+        <tag>String</tag>
+        <tag>异常</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Feign调用返回对象属性全为null | databind.exc.MismatchedInputException: Cannot deserialize instance of '' out of START_OBJECT token]]></title>
+    <url>%2F2018%2F08%2F24%2FFeign%E8%B0%83%E7%94%A8%E8%BF%94%E5%9B%9E%E5%AF%B9%E8%B1%A1%E5%B1%9E%E6%80%A7%E5%85%A8%E4%B8%BAnull-databind-exc-MismatchedInputException-Cannot-deserialize-instance-of-out-of-START-OBJECT-token%2F</url>
+    <content type="text"><![CDATA[Feign是SpringCloud中的一个模块，作用是将本来需要发送请求的工作简化成为调用方法就可以完成的简单工作。 #####最近在使用Feign的时候，经常出现两种情况： 请求返回一个对象，请求成功了，没有熔断，也返回数据了，而且对象不为null，但是对象所有的属性都是null，这样直接通过了我们的验空判断，从而造成报错。 返回一个对象List时，报错如下：1databind.exc.MismatchedInputException: Cannot deserialize instance of &apos;&apos; out of START_OBJECT token 类似这样的。 #####解决方法：这些错误表面上看好像是返回的数据出了问题。实际上这些错误只能证明，通过Feign调用其它服务时，被调用的服务出了错误，比如SQL错误等。所以只要把关注点从调用方移到被调用方，在被调用服务中debug找到错误就可以了。]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>SpringCloud</tag>
+        <tag>Feign</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Java SpringBoot 读取、使用yaml文件类型的简述，和对集合list的使用解析]]></title>
+    <url>%2F2018%2F08%2F24%2FJava-SpringBoot-%E8%AF%BB%E5%8F%96%E3%80%81%E4%BD%BF%E7%94%A8yaml%E6%96%87%E4%BB%B6%E7%B1%BB%E5%9E%8B%E7%9A%84%E7%AE%80%E8%BF%B0%EF%BC%8C%E5%92%8C%E5%AF%B9%E9%9B%86%E5%90%88list%E7%9A%84%E4%BD%BF%E7%94%A8%E8%A7%A3%E6%9E%90%2F</url>
+    <content type="text"><![CDATA[#####基本类型的使用yml文件大部分使用的都是字符串，如果想使用其它类型，只要直接按其它类型写变量值就可以了。举例：123#使用booleanmy-switch: is-on: true Java中使用只要加上@Value就可以了：12@Value(&quot;$&#123;my-switch.is-on&#125;&quot;)private boolean switchOn; 使用其它类型也是一样的。 #####集合的使用举例：123#使用int的liststudent: ids: [1, 2, 3, 4, 5] 或者：12345678#使用int的liststudent: ids: - 1 - 2 - 3 - 4 - 5 这个时候要注意了，Java如果直接写成：12@Value(&quot;$&#123;student.id&#125;&quot;)private List&lt;Integer&gt; ids; 启动时会报错，Cannot resolve placeholder 什么的这时候应该新建一个对list属性的配置类：123456@Configuration@ConfigurationProperties(&quot;student&quot;)public class PropertyConfig&#123; private List&lt;Integer&gt; ids; // getter &amp; setter&#125; 然后在要使用的地方自动注入，调用一个getter方法就可以得到配置文件中的值。 yml文件还可以存放对象和对象的集合，使用方法与基本类型类似。简单举例：12345#使用对象student: id: 1 name: Bruce gender: male 12345678#使用对象集合students: - id: 1 name: Bruce gender: male - id: 2 name: ... ...]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>list</tag>
+        <tag>SpringBoot</tag>
+        <tag>yaml</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Java | MySQL | Emoji表情写入数据库时报错问题解决，Incorrect string value: 'ðð...' for column]]></title>
+    <url>%2F2018%2F08%2F24%2FJava-MySQL-Emoji%E8%A1%A8%E6%83%85%E5%86%99%E5%85%A5%E6%95%B0%E6%8D%AE%E5%BA%93%E6%97%B6%E6%8A%A5%E9%94%99%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%EF%BC%8CIncorrect-string-value-xF0-x9F-x98-x84-xF0-x9F-for-column%2F</url>
+    <content type="text"><![CDATA[#####现象：将Emoji表情存入数据库时，报如下错误：12Cause: java.sql.SQLException: Incorrect string value: &apos;\xF0\x9F\x99\x83\xF0\x9F...&apos; for column &apos;XXX&apos; at row 1; uncategorized SQLException; SQL state [HY000]; error code [1366]; Incorrect string value: &apos;\xF0\x9F\x99\x83\xF0\x9F...&apos; for column &apos;XXX&apos; at row 1; nested exception is java.sql.SQLException: Incorrect string value: &apos;\xF0\x9F\x99\x83\xF0\x9F...&apos; for column &apos;XXX&apos; #####原因：这个问题的主要原因就是MySQL使用的是ut8编码，utf8编码默认每个字符3个字节，而Emoji表情使用的Unicode编码占4个字节，所以写入数据库的时候会写入失败并报错。 #####解决办法： ######一、首先确认数据库、表、字段的编码是否是utf8m64，如果是，就跳过这一步。如果不是，先把这些字符集都改为utf8m64:123456# 修改数据库:ALTER DATABASE database_name CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci;# 修改表:ALTER TABLE table_name CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;# 修改表字段:ALTER TABLE table_name CHANGE column_name column_name VARCHAR(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci; ######二、然后解决代码。代码中有两种解决办法： 针对需要的字段改：在Dao层加一个方法：12@Update(&quot;set names utf8mb4&quot;) public void setCharsetToUtf8mb4(); &nbsp;&nbsp;&nbsp;&nbsp;然后调用写入方法之前，先调用此方法即可。 一劳永逸，在Java配置数据库连接池的地方加上一行代码即可：12345678910111213141516171819@Bean(name = &quot;dataSource&quot;)@Primarypublic DataSource dataSource() &#123; DruidDataSource dataSource = new DruidDataSource(); dataSource.setDriverClassName(driverClass); dataSource.setUrl(url); dataSource.setUsername(user); dataSource.setPassword(password); dataSource.setConnectionInitSqls(Arrays.asList(&quot;set names utf8mb4&quot;)); # 加入此行代码即可 dataSource.setInitialSize(initialSize); dataSource.setMinIdle(minIdle); dataSource.setMaxActive(100); dataSource.setMaxWait(maxWait); dataSource.setTimeBetweenEvictionRunsMillis(timeBetweenEvictionRunsMillis); dataSource.setValidationQuery(validationQuery); dataSource.setTestWhileIdle(testWhileIdle); dataSource.setTestOnBorrow(testOnBorrow); return dataSource;&#125; 这样就可以把Emoji表情写入数据库了，并且可以成功的读取出来。]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>MySQL</tag>
+        <tag>Emoji</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[代码中发送http请求， java.lang.IllegalArgumentException: Illegal character in query at index...，非法字符错误解决办法]]></title>
+    <url>%2F2018%2F08%2F24%2F%E4%BB%A3%E7%A0%81%E4%B8%AD%E5%8F%91%E9%80%81http%E8%AF%B7%E6%B1%82%EF%BC%8C-java-lang-IllegalArgumentException-Illegal-character-in-query-at-index-%EF%BC%8C%E9%9D%9E%E6%B3%95%E5%AD%97%E7%AC%A6%E9%94%99%E8%AF%AF%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95%2F</url>
+    <content type="text"><![CDATA[产生原因：url中有汉字或特殊字符(非字母和数字的字符)，没有转码。 解决办法：将带有特殊字符或汉字的参数进行转码，再放入url发送即可。 例如：param1 = URLEncoder.encode(param1, “UTF-8”);]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>http</tag>
+        <tag>请求</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[项目半夜凌晨宕机，报错Invalid character found in method name. HTTP method names must be tokens|Invalid character found in the HTTP protocol]]></title>
+    <url>%2F2018%2F08%2F24%2F%E9%A1%B9%E7%9B%AE%E5%8D%8A%E5%A4%9C%E5%87%8C%E6%99%A8%E5%AE%95%E6%9C%BA%EF%BC%8C%E6%8A%A5%E9%94%99Invalid-character-found-in-method-name-HTTP-method-names-must-be-tokens-Invalid-character-found-in-the-HTTP-protocol%2F</url>
+    <content type="text"><![CDATA[这几天项目总是在凌晨挂机，查看日志发现以下错误： 123456789101112131415161718192021222324252627Http11Processor - Error parsing HTTP request header Note: further occurrences of HTTP header parsing errors will be logged at DEBUG level.java.lang.IllegalArgumentException: Invalid character found in method name. HTTP method names must be tokens at org.apache.coyote.http11.Http11InputBuffer.parseRequestLine(Http11InputBuffer.java:426) at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:687) at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66) at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:790) at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1459) at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142) at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617) at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) at java.lang.Thread.run(Thread.java:745)Http11Processor - Error parsing HTTP request header Note: further occurrences of HTTP header parsing errors will be logged at DEBUG level.java.lang.IllegalArgumentException: Invalid character found in the HTTP protocol at org.apache.coyote.http11.Http11InputBuffer.parseRequestLine(Http11InputBuffer.java:533) at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:687) at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66) at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:790) at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1459) at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142) at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617) at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) at java.lang.Thread.run(Thread.java:745) 那么可能需要通过以下两种方式解决： 一、Tomcat的header缓冲区大小不够,只需要在server.xml中增加maxHttpHeaderSize字段即可:12345&lt;Connector URIEncoding=&quot;UTF-8&quot; port=&quot;8080&quot; protocol=&quot;org.apache.coyote.http11.Http11NioProtocol&quot; useBodyEncodingForURI=&quot;false&quot; enableLookups=&quot;false&quot; connectionTimeout=&quot;20000&quot; redirectPort=&quot;8443&quot; maxHttpHeaderSize=&quot;你想要的大小&quot;/&gt; 如果是SpringBoot项目，则需要在application.yml文件中，进行如下修改：12345server: port: 项目端口 # 下面这个参数是为解决问题而新增的 tomcat: max-http-header-size:8192 二、可能是因为请求协议不对，需要统一成https或http请求。]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>宕机</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[ElasticSearchTemplate的几点使用基础，多条件查询、条件多值查询、离我最近/经纬度距离查询、范围查询、中文查询、多字段排序、long类型数据错误、条件包含中文、嵌套条件查询/子文档。termQuery]]></title>
+    <url>%2F2018%2F08%2F24%2FElasticSearchTemplate%E7%9A%84%E5%87%A0%E7%82%B9%E4%BD%BF%E7%94%A8%E5%9F%BA%E7%A1%80%EF%BC%8C%E5%A4%9A%E6%9D%A1%E4%BB%B6%E6%9F%A5%E8%AF%A2%E3%80%81%E6%9D%A1%E4%BB%B6%E5%A4%9A%E5%80%BC%E6%9F%A5%E8%AF%A2%E3%80%81%E7%A6%BB%E6%88%91%E6%9C%80%E8%BF%91-%E7%BB%8F%E7%BA%AC%E5%BA%A6%E8%B7%9D%E7%A6%BB%E6%9F%A5%E8%AF%A2%E3%80%81%E8%8C%83%E5%9B%B4%E6%9F%A5%E8%AF%A2%E3%80%81%E4%B8%AD%E6%96%87%E6%9F%A5%E8%AF%A2%E3%80%81%E5%A4%9A%E5%AD%97%E6%AE%B5%E6%8E%92%E5%BA%8F%E3%80%81long%E7%B1%BB%E5%9E%8B%E6%95%B0%E6%8D%AE%E9%94%99%E8%AF%AF%E3%80%81%E6%9D%A1%E4%BB%B6%E5%8C%85%E5%90%AB%E4%B8%AD%E6%96%87%E3%80%81%E5%B5%8C%E5%A5%97%E6%9D%A1%E4%BB%B6%E6%9F%A5%E8%AF%A2-%E5%AD%90%E6%96%87%E6%A1%A3%E3%80%82termQuery%2F</url>
+    <content type="text"><![CDATA[多条件查询和条件多值就一起说了：假如我要用城市编码和多个品牌ID来查询商品列表，那么如下即可：12BoolQueryBuilder boolQueryBuilder = boolQuery().must(termQuery(&quot;cityCode&quot;,searchParams.getCityCode()).must(termsQuery(&quot;brandIds&quot;, searchParams.getBrandIds())); SearchQuery searchQuery =new NativeSearchQueryBuilder().withQuery(boolQueryBuilder).withPageable(pageable).build(); 这里通常新手会遇到一个问题，就是如果两个条件中有一个为null，那么就会报错，这时候怎么解决呢？（没有学过SpringData Jpa 和 Hibernate的）网上搜了很久没找到答案，实际上却非常简单，如下即可：12345678BoolQueryBuilder boolQueryBuilder = boolQuery(); if (null != searchParams.getCityCode()) &#123; boolQueryBuilder.must(termQuery(&quot;cityCode&quot;, searchParams.getCityCode())); &#125; if (null != searchParams.getBrandIds() &amp;&amp; !searchParams.getBrandIds().isEmpty()) &#123; boolQueryBuilder.must(termsQuery(&quot;brandIds&quot;, searchParams.getBrandIds())); &#125; SearchQuery searchQuery =new NativeSearchQueryBuilder().withQuery(boolQueryBuilder).withPageable(pageable).build(); 多字段排序：以前我们可以这样写：123Order order1 = new Order(Sort.Direction.ASC, &quot;field1&quot;); Order order2 =new Order(Sort.Direction.DESC, &quot;field2&quot;); Sort sort =new Sort(order1, order2); 但是现在会出现：Sort sort = new Sort(order1, order2); 这种方法已过时，那肯定是不推荐使用了。 可以采用以下方式：1Sort sort = new Sort(Sort.Direction.ASC,&quot;field1&quot;).and(new Sort(Sort.Direction.DESC, &quot;field2&quot;)); 代码手打，有错误请自行更改。 插播一条问题，存储long类型字段，在Kibana上看到的数据不正确：传了一个订单数据到ES，ID长这样：2018041817382997796，结果传上去之后，用Kibana查出来之后，ES的ID”_id”是对的，就是2018041817382997796，但是订单数据里的orderId却变成了2018041817382997800？？？就因为这个问题还检查代码，重上数据的找了半天原因。最终确定原因为Kibana显示数据的问题，增删改查都没有问题，ES也没有问题，就只是Kibana显示有问题，所以这个问题不用去关心。 按“离我最近”举例排序：这个难度升级了，一步一步来吧： 第一步，准备要使用此排序方式的、要存入ES的Bean，添加位置信息属性，并加 @GeoPointField 。位置属性的类型为GeoPoint。正常情况下应该是用SpringData包下的GeoPoint类型，但是使用期间会出现各种无法判断的错误，所以我们一般自己创建一个GeoPoint类，这个类需要有lat（纬度）和lon（经度）这两个属性、两个构造器（空参、全参），和属性的getter setter。12345678910111213141516171819202122232425262728293031// 自己创建的GeoPoint public class GeoPoint &#123; private Double lat, lon; public GeoPoint() &#123;&#125; public GeoPoint(Double lat, Double lon) &#123; this.lat = lat; this.lon = lon; &#125; public Double getLat() &#123; return lat; &#125; public void setLat(Double lat) &#123; this.lat = lat; &#125; public Double getLon() &#123; return lon; &#125; public void setLon(Double lon) &#123; this.lon = lon; &#125; &#125; // 要排序的JavaBean public class Shop&#123; @Id private Integer shopId; @GeoPointField private GeoPoint position; &#125; //多余的就不写了 第二步就是把对象存到ElasticSearch中，这篇文章仅针对“离我最近”排序，如何存入不再赘述。存入之后，在Kibana中看到的位置信息是这样显示的：12345&quot;shopId&quot;:201805111234567, &quot;position&quot;:&#123; &quot;lat&quot;:40.123, &quot;lon&quot;:-70.456 &#125; 第三步，就是排序并查询了，代码如下：1234567891011NativeSearchQueryBuilder nativeSearchQueryBuilder = new NativeSearchQueryBuilder().withQuery(boolQueryBuilder).withPageable(pageable); if (null != searchParams.getSortType() &amp;&amp; SortTypeConstants.DISTANCE.getCode() == searchParams.getSortType()) &#123; GeoDistanceSortBuilder sortBuilder = SortBuilders.geoDistanceSort(&quot;position&quot;, &quot;&quot;) .point(searchParams.getLat(), searchParams.getLon()) .unit(DistanceUnit.METERS) .order(SortOrder.ASC); nativeSearchQueryBuilder.withSort(sortBuilder); &#125; SearchQuery searchQuery = nativeSearchQueryBuilder.build(); boolQueryBuilder在前面创建好的，用来拼接筛选条件，我的其它文章有介绍。按距离排序需要创建NativeSearchQueryBuilder，然后.withSort()就可以了。经纬度和排序类型都是放在searchParams里面的，这个没有死规定，可以自行定义。这样就完成了“离我最近”的排序。如果想实现举例范围的，结合后面的范围查询。 范围查询：(1) gte() :范围查询将匹配字段值大于或等于此参数值的文档。(2) gt() :范围查询将匹配字段值大于此参数值的文档。(3) lte() :范围查询将匹配字段值小于或等于此参数值的文档。(4) lt() :范围查询将匹配字段值小于此参数值的文档。(5) from() 开始值 to() 结束值 这两个函数与includeLower()和includeUpper()函数配套使用。(6) includeLower(true) 表示 from() 查询将匹配字段值大于或等于此参数值的文档。(7) includeLower(false) 表示 from() 查询将匹配字段值大于此参数值的文档。(8) includeUpper(true) 表示 to() 查询将匹配字段值小于或等于此参数值的文档。(9) includeUpper(false) 表示 to() 查询将匹配字段值小于此参数值的文档。 例如：1RangeQueryBuilder rangeQueryBuilder = QueryBuilders.rangeQuery(&quot;createTime&quot;).gte(1527580006000).lt(1527692129000); 或12345RangeQueryBuilder rangeQueryBuilder = QueryBuilders.rangeQuery(&quot;createTime&quot;);rangeQueryBuilder.from(1527580006000);rangeQueryBuilder.to(1527692129000);rangeQueryBuilder.includeLower(true);rangeQueryBuilder.includeUpper(true); 来筛选一段时间内的数据。写完这句之后，把它withQuery到QueryBuilder后面就可以了。 或者也可以直接像文章开头那样拼接：1.must(rangeQuery(&quot;createTime&quot;).gte(1527580006000).lt(1527692129000)); 中文条件查询：比如：1termQuery(&quot;cityName&quot;, &quot;北京市&quot;); 改成：1termQuery(&quot;cityName.keyword&quot;, &quot;北京市&quot;); 即可。 嵌套条件查询：直接拼接：1.must(nestedQuery(&quot;userInfo&quot;,termQuery(&quot;userInfo.phone&quot;, &quot;17******084&quot;), ScoreMode.None)); 如果要做筛选可以把ScoreMode改为其它，这里不做筛选操作直接用None。 ScoreMode的值包括：Avg、Max、Total、Min。看一眼也知道什么意思了吧。 这个在网上翻了一下午没翻到，最后在提示代码中找到了，也是不容易。希望以后有人用到，可以直接翻到我的文章。 如果本文对你有用，麻烦点个喜欢。有钱的捧个钱场，没钱的回家取点钱来捧个钱场，谢谢大家。]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>ElasticSearch</tag>
+        <tag>ES</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Calendar计算出一个月后1天的23点59分59秒，但是减1毫秒后，存入数据库的数据没有减的问题。]]></title>
     <url>%2F2018%2F08%2F24%2FCalendar%E8%AE%A1%E7%AE%97%E5%87%BA%E4%B8%80%E4%B8%AA%E6%9C%88%E5%90%8E1%E5%A4%A9%E7%9A%8423%E7%82%B959%E5%88%8659%E7%A7%92%EF%BC%8C%E4%BD%86%E6%98%AF%E5%87%8F1%E6%AF%AB%E7%A7%92%E5%90%8E%EF%BC%8C%E5%AD%98%E5%85%A5%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E6%95%B0%E6%8D%AE%E6%B2%A1%E6%9C%89%E5%87%8F%E7%9A%84%E9%97%AE%E9%A2%98%E3%80%82%2F</url>
     <content type="text"><![CDATA[昨天遇到的一个问题，要根据当前时间计算出一个月后的某一天，推后一天的23点59分59秒，在测试类进行测试的时候没有任何问题，代码如下：123456789101112131415161718public Date getTheLastTime(Date date)&#123; Calendar calendar = Calendar. getInstance(); calendar.setTime(date); calendar.set(Calendar. HOUR_OF_DAY, 0); calendar.set(Calendar. MINUTE, 0); calendar.set(Calendar. SECOND, 0); calendar.set(Calendar. MILLISECOND, -1); calendar.add(Calendar. DAY_OF_MONTH, 1); return calendar.getTime();&#125; @Testpublic void monthLaterTest()&#123; long nowTime = System.currentTimeMillis(); long day2Sss = 30L * 24 * 60 * 60 *1000; long newTime = nowTime + day2Sss; System.out.println(getTheLastTime(time2Date(newTime)));&#125; 举例来说今天是 2018-6-29 11:41:52，我需要生成的时间就是 2018-7-30 23:59:59，测试类结果如下：1Mon Jul 30 23:59:59 CST 2018 没有任何问题，但是布到项目中执行，存入数据库的结果却成了 2018-7-31 0:00:00。 这是因为MySQL默认存储datetime是精确到秒的，所以减掉一个毫秒之后存入MySQL，MySQL并不care。 于是将减1毫秒改成减1秒，就好了：12345678910public Date getTheLastTime(Date date)&#123; Calendar calendar = Calendar. getInstance(); calendar.setTime(date); calendar.set(Calendar. HOUR_OF_DAY, 0); calendar.set(Calendar. MINUTE, 0); calendar.set(Calendar. SECOND, -1); calendar.set(Calendar. MILLISECOND, 0); calendar.add(Calendar. DAY_OF_MONTH, 1); return calendar.getTime();&#125; 如果想让MySQL精确到毫秒，可以将数据库中的时间字段类型长度设置为3。]]></content>
@@ -76,8 +193,8 @@
         <category>Linux</category>
       </categories>
       <tags>
-        <tag>Linux</tag>
         <tag>CentOS</tag>
+        <tag>Linux</tag>
         <tag>yum</tag>
       </tags>
   </entry>
@@ -89,8 +206,8 @@
         <category>Linux</category>
       </categories>
       <tags>
-        <tag>Linux</tag>
         <tag>CentOS</tag>
+        <tag>Linux</tag>
         <tag>yum源</tag>
       </tags>
   </entry>
