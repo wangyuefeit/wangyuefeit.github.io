@@ -61,9 +61,9 @@
       </categories>
       <tags>
         <tag>Java</tag>
-        <tag>list</tag>
         <tag>SpringBoot</tag>
         <tag>yaml</tag>
+        <tag>list</tag>
       </tags>
   </entry>
   <entry>
@@ -138,8 +138,8 @@
         <category>Java</category>
       </categories>
       <tags>
-        <tag>MyBatis</tag>
         <tag>list</tag>
+        <tag>MyBatis</tag>
       </tags>
   </entry>
   <entry>
@@ -193,8 +193,8 @@
         <category>Linux</category>
       </categories>
       <tags>
-        <tag>CentOS</tag>
         <tag>Linux</tag>
+        <tag>CentOS</tag>
         <tag>yum</tag>
       </tags>
   </entry>
@@ -206,8 +206,8 @@
         <category>Linux</category>
       </categories>
       <tags>
-        <tag>CentOS</tag>
         <tag>Linux</tag>
+        <tag>CentOS</tag>
         <tag>yum源</tag>
       </tags>
   </entry>
